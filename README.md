@@ -1,1 +1,2 @@
-# cursor-game
+# Cursor Game
+WIP
