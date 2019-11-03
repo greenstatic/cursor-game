@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour {
 
+    private Rigidbody2D rb;
+    
+    // Movements variables
     public float speed;
     public float angle;
-    private Rigidbody2D rb;
-    public bool sprint = false;
-    public float waitTime = 2;
-
     private Vector2 moveInput;
     private Vector2 moveVelocity;
-    private Vector2 frontDirection;
 
-    // Start is called before the first frame update
+    // Dash Variables
+    public float dashSpeed;
+    private float dashTime;
+    public float startDashTime;
+    private bool isFinished;
+    private Vector2 direction;
+    public float startRechargeTime;
+    private float rechargeTime;
+    public GameObject dashEffect;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        rechargeTime = 0;
     }
-
-    // Update is called once per frame
+    
     void Update() {
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveVelocity = moveInput.normalized * speed;
-
-        if (Input.GetButton("FrontAttack")) {
-            sprint = true;
-        }
     }
 
     void FixedUpdate() {
@@ -40,12 +43,50 @@ public class playerController : MonoBehaviour {
             rb.rotation = angle;
         }
 
-        if (sprint) {
-            frontDirection = new Vector2(transform.right.x, transform.right.y);
-            rb.MovePosition(rb.position - 50 * frontDirection * Time.fixedDeltaTime);
-            rb.MovePosition(rb.position + 20 * frontDirection * Time.fixedDeltaTime);
-            sprint = false;
-            new WaitForSecondsRealtime(waitTime);
+        // Dash
+        if (Input.GetButton("Dash")) {
+            if (rechargeTime <= 0) {
+                isFinished = true;
+                Dash();
+                rechargeTime = startRechargeTime;
+            }
+        }
+        rechargeTime -= Time.fixedDeltaTime;
+
+        /* // Roll
+        if (Input.GetButton("Roll")) {
+            Roll();
+        }
+        */
+    }
+
+    public void Dash() {
+        dashTime = startDashTime;
+
+        // Play Dash Effect
+        Instantiate(dashEffect, transform.position, Quaternion.identity);
+
+        while (true) {
+            if (isFinished) {
+                direction = new Vector2(transform.right.x, transform.right.y);
+                isFinished = false;
+            } else {
+                if (dashTime <= 0) {
+                    isFinished = true;
+                    dashTime = startDashTime;
+                    break;
+                } else {
+                    dashTime -= Time.deltaTime;
+                    //camAnim.setTrigger("Shake");
+                    rb.MovePosition(rb.position + direction * dashSpeed * Time.fixedDeltaTime );
+                }
+            }
         }
     }
+
+    /*
+    public void Roll() {
+        
+    }
+    */
 }
