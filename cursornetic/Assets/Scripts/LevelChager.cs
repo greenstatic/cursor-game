@@ -3,31 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelChager : MonoBehaviour
-{
+public class LevelChager : MonoBehaviour {
+
     public Animator animator;
-    private int levelToLoad;
+    int levelIndex;
+    
+    private void OnTriggerEnter2D(Collider2D col) {
 
+        if (col.CompareTag("Player")) {
 
-    // Update is called once per frame
-    void Update ()
-    {
-        if (Input.GetMouseButton(1))
-            TransitionToNextLevel();
+            PlayTransition(); // In case we decide to add more sofisticated animation
+
+            int.TryParse(gameObject.tag, out levelIndex);
+
+            if (levelIndex == 2)
+                SceneManager.LoadScene(levelIndex);
+            else if (levelIndex == 3)
+                SceneManager.LoadScene(levelIndex);
+            else if (levelIndex == 4)
+                SceneManager.LoadScene(levelIndex);
+            else if (levelIndex == 5)
+                SceneManager.LoadScene(levelIndex);
+            else if (levelIndex == 6)
+                SceneManager.LoadScene(levelIndex);
+            else if (levelIndex == 7)
+                SceneManager.LoadScene(levelIndex);
+        }
     }
 
-    public void TransitionToNextLevel() {
-        TransitionToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void TransitionToLevel (int levelIndex) {
-
-        levelToLoad = levelIndex;
+    public void PlayTransition() {
         animator.SetTrigger("TransitionIn");
-    }
-
-    public void OnTransitionComplete () {
-
-        SceneManager.LoadScene(levelToLoad);
     }
 }
