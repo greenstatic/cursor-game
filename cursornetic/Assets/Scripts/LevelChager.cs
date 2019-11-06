@@ -13,7 +13,11 @@ public class LevelChager : MonoBehaviour
     void Update ()
     {
         if (Input.GetMouseButton(1))
-            TransitionToLevel(1);
+            TransitionToNextLevel();
+    }
+
+    public void TransitionToNextLevel() {
+        TransitionToLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void TransitionToLevel (int levelIndex) {
