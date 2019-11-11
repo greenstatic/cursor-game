@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour {
     public float startRechargeTime;
     private float rechargeTime;
     public GameObject dashEffect;
+    //public Animator camAnim;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -33,9 +34,9 @@ public class playerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        
+
         // Translation
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+        rb.velocity = moveInput * speed * Time.unscaledDeltaTime;
 
         // Rotation
         if (moveInput != Vector2.zero) {
@@ -51,13 +52,14 @@ public class playerController : MonoBehaviour {
                 rechargeTime = startRechargeTime;
             }
         }
-        rechargeTime -= Time.fixedDeltaTime;
 
         /* // Roll
         if (Input.GetButton("Roll")) {
             Roll();
         }
         */
+
+        rechargeTime -= Time.fixedDeltaTime;
     }
 
     public void Dash() {
@@ -77,8 +79,9 @@ public class playerController : MonoBehaviour {
                     break;
                 } else {
                     dashTime -= Time.deltaTime;
-                    //camAnim.setTrigger("Shake");
-                    rb.MovePosition(rb.position + direction * dashSpeed * Time.fixedDeltaTime );
+                    //camAnim.SetTrigger("Shake");
+                    rb.velocity = direction * (10*dashSpeed) * Time.unscaledDeltaTime;
+                    Debug.Log(rb.velocity);
                 }
             }
         }
