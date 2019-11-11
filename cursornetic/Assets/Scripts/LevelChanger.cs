@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelChager : MonoBehaviour {
+public class LevelChanger : MonoBehaviour {
 
     public Animator animator;
     int levelIndex;
@@ -16,7 +16,12 @@ public class LevelChager : MonoBehaviour {
 
             int.TryParse(gameObject.tag, out levelIndex);
 
-            if (levelIndex == 2)
+            SceneManager.LoadScene(levelIndex);
+
+            /*
+            if (levelIndex == 1)
+                SceneManager.LoadScene(levelIndex);
+            else if (levelIndex == 2)
                 SceneManager.LoadScene(levelIndex);
             else if (levelIndex == 3)
                 SceneManager.LoadScene(levelIndex);
@@ -28,6 +33,7 @@ public class LevelChager : MonoBehaviour {
                 SceneManager.LoadScene(levelIndex);
             else if (levelIndex == 7)
                 SceneManager.LoadScene(levelIndex);
+                */
         }
     }
 
