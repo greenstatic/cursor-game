@@ -80,8 +80,7 @@ public class playerController : MonoBehaviour {
                 } else {
                     dashTime -= Time.deltaTime;
                     //camAnim.SetTrigger("Shake");
-                    rb.velocity = direction * (10*dashSpeed) * Time.unscaledDeltaTime;
-                    Debug.Log(rb.velocity);
+                    rb.AddForce(direction * dashSpeed);
                 }
             }
         }
