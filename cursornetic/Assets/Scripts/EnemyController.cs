@@ -8,7 +8,8 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.CompareTag("Player")) {
-            Destroy();
+            if (true) //we need a parameter that tells us if the player is dashing!!
+                Destroy();
         }
     }
 
