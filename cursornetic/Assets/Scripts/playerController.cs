@@ -36,7 +36,7 @@ public class playerController : MonoBehaviour {
     void FixedUpdate() {
 
         // Translation
-        rb.velocity = moveInput * speed * Time.unscaledDeltaTime;
+        rb.velocity = moveInput * speed * Time.deltaTime;
 
         // Rotation
         if (moveInput != Vector2.zero) {
