@@ -7,12 +7,12 @@ public class EnemyController : MonoBehaviour {
     public ParticleSystem deathParticle;
     public int health = 100;
 
-    private void OnTriggerEnter2D(Collider2D col) {
-        if (col.CompareTag("Player")) {
-            if (true) //we need a parameter that tells us if the player is dashing!!
-                Die();
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D col) {
+    //    if (col.CompareTag("Player")) {
+    //        if (true) //we need a parameter that tells us if the player is dashing!!
+    //            Die();
+    //    }
+    //}
 
     public void Die()
     {

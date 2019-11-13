@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour {
 
     private Rigidbody2D rb;
-    
+
     // Movements variables
     public float speed;
     public float angle;
@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         rechargeTime = 0;
     }
-    
+
     void Update() {
         moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         moveVelocity = moveInput.normalized * speed;
@@ -50,6 +50,7 @@ public class playerController : MonoBehaviour {
                 isFinished = true;
                 Dash();
                 rechargeTime = startRechargeTime;
+
             }
         }
 
@@ -72,12 +73,14 @@ public class playerController : MonoBehaviour {
             if (isFinished) {
                 direction = new Vector2(transform.right.x, transform.right.y);
                 isFinished = false;
-            } else {
+            }
+            else {
                 if (dashTime <= 0) {
                     isFinished = true;
                     dashTime = startDashTime;
                     break;
-                } else {
+                }
+                else {
                     dashTime -= Time.deltaTime;
                     //camAnim.SetTrigger("Shake");
                     rb.AddForce(direction * dashSpeed);
@@ -91,4 +94,27 @@ public class playerController : MonoBehaviour {
         
     }
     */
+
+
+    public void OnTriggerEnter2D(Collider2D col) {
+        if (col.CompareTag("Enemy")) {
+            EnemyController enemy = col.GetComponent<EnemyController>();
+
+            if (enemy != null) {
+                if (isFinished) {
+                    Debug.Log("Enemy has died.");
+                    enemy.Die();
+                }
+                else {
+                    Die();
+                }
+            }
+        }
+    }
+
+    public void Die() {
+        // TODO - implement die mechanics
+        Debug.Log("You died!");
+        //Destroy(gameObject);
+    }
 }
