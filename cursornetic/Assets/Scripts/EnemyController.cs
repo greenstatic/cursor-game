@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
-{
+public class EnemyController : MonoBehaviour {
+
     public ParticleSystem deathParticle;
 
     private void OnTriggerEnter2D(Collider2D col) {
@@ -13,8 +13,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Destroy()
-    {
+    public void Destroy() {
         Destroy(gameObject);
     }
 }
