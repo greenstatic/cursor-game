@@ -14,20 +14,16 @@ public class EnemyController : MonoBehaviour {
     //    }
     //}
 
-    public void Die()
-    {
+    public void Die() {
         Destroy(gameObject);
     }
 
 
-    public void TakeDamage(int damage)
-    {
+    public void TakeDamage(int damage) {
         health -= damage;
 
-        if (health <= 0)
-        {
+        if (health <= 0) {
             Die();
         }
-
     }
 }
