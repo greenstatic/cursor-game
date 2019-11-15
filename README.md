@@ -21,3 +21,15 @@ If you see any errors report back to one of the developers.
 You can in general ignore warnings, they are the ones with yellow triangles.
 1. Under `Project` select `Assets/Scenes/Menu` and click the play button in the top middle portion of the editor.
 1. Enjoy.
+
+### Update to get new changes
+You have a copy of the repository locally.
+In order to get the latest changes do the following:
+
+1. Open in File Explorer where you have the project (e.g. Documents -> ccusornetic)
+1. Right click and select `Git bash here`.
+1. Enter the following commands:
+```bash
+git reset --hard  # this will delete all local changes
+git pull  # this will fetch the new changes from GitHub
+```
