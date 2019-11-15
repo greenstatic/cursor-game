@@ -32,11 +32,11 @@ public class LevelChanger : MonoBehaviour {
 
         levelIndex = SceneManager.GetActiveScene().buildIndex;
 
-        if (levelIndex == 1) {
+        // Retrieving camera and player objects in cpu scene
+        player = GameObject.FindGameObjectWithTag("Player");
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
 
-            // Retrieving camera and player objects in cpu scene
-            player = GameObject.FindGameObjectWithTag("Player");
-            cam = GameObject.FindGameObjectWithTag("MainCamera");
+        if (levelIndex == 1) {
 
             // Setting location and rotation of player and camera
             player.transform.position = cpuLoc1;
