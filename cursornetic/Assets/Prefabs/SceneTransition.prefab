@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 7436130770959568840}
   m_Layer: 0
   m_Name: SceneTransition
-  m_TagString: Untagged
+  m_TagString: Undefined
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

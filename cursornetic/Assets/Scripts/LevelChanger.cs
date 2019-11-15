@@ -9,12 +9,8 @@ public class LevelChanger : MonoBehaviour {
     GameObject player, cam;
     public Animator animator;
 
-    private Vector2 cpuLoc1 = new Vector2(-12.69f, 13.02f);
-    private Vector2 cpuLoc2 = new Vector2(-12.69f, 13.02f);
-    private Vector2 cpuLoc3 = new Vector2(-12.69f, 13.02f);
-    private Vector2 cpuLoc4 = new Vector2(-12.69f, 13.02f);
-    private Vector2 cpuLoc5 = new Vector2(-12.69f, 13.02f);
-    private Vector2 cpuLoc6 = new Vector2(-12.69f, 13.02f);
+    private Vector2 cpuLoc1 = new Vector2(-6.685872f, 6.902206f);
+    //private Vector2 cpuLoc2 = new Vector2(-12.69f, 13.02f);
 
     private void OnTriggerEnter2D(Collider2D col) {
 
@@ -40,7 +36,7 @@ public class LevelChanger : MonoBehaviour {
 
             // Setting location and rotation of player and camera
             player.transform.position = cpuLoc1;
-            player.GetComponent<Rigidbody2D>().rotation = 0;
+            player.GetComponent<Rigidbody2D>().rotation = 90;
             cam.transform.position = cpuLoc1;
 
         } else if (levelIndex == 2) {
@@ -59,6 +55,7 @@ public class LevelChanger : MonoBehaviour {
     
 
     public void PlayTransition() {
+
         animator.SetTrigger("TransitionIn");
     }
 }

@@ -6,7 +6,7 @@ public class RoomChanger : MonoBehaviour {
 
     private GameObject player, cam;
     public GameObject nextDoor;
-    public Animator animator;
+    //public Animator animator;
 
     private Vector2 interval;
     private Vector2 doorLoc;
@@ -20,7 +20,7 @@ public class RoomChanger : MonoBehaviour {
 
         if (col.CompareTag("Player")) {
 
-            PlayTransition(); // (In case we decide to add more sofisticated animation)
+            //PlayTransition(); // (In case we decide to add more sofisticated animation)
 
             // Retrieving camera and player objects in scene
             player = GameObject.FindGameObjectWithTag("Player");
@@ -44,7 +44,7 @@ public class RoomChanger : MonoBehaviour {
         }
     }
 
-    public void PlayTransition() {
-        animator.SetTrigger("TransitionIn");
-    }
+    //public void PlayTransition() {
+    //    animator.SetTrigger("TransitionIn");
+    //}
 }

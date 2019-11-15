@@ -8,14 +8,12 @@ TagManager:
   - 1
   - 2
   - 3
-  - 4
-  - 5
-  - 6
-  - 7
   - Up
   - Right
   - Down
   - Left
+  - Undefined
+  - FadeTransition
   layers:
   - Default
   - TransparentFX
