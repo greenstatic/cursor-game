@@ -3,6 +3,11 @@ Join a heroic cursor on his epic journey through computer hardware in our 2D top
 Throughout the journey you will meet and save various characters and gain powers that no anti-virus ever dreamed of. 
 Save the computer and destroy the nasty virus. 
 
+## Key Bindings
+* Use `arrow keys` to move
+* `Space` to shoot
+* `E` to perform dash attack
+
 ## Development Setup
 1. Download and install [Git](https://git-scm.com/downloads).
 1. Download and install [Unity Hub](https://unity3d.com/get-unity/download).
