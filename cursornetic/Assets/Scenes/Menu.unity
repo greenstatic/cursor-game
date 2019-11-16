@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 39589482}
   - component: {fileID: 39589484}
   - component: {fileID: 39589483}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 373362793}
   - component: {fileID: 373362795}
   - component: {fileID: 373362794}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 490757920}
   - component: {fileID: 490757922}
   - component: {fileID: 490757921}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686817485}
   - component: {fileID: 686817486}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 816615734}
   - component: {fileID: 816615733}
   - component: {fileID: 816615732}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 850930016}
   - component: {fileID: 850930015}
   - component: {fileID: 850930014}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 978494743}
   - component: {fileID: 978494742}
   - component: {fileID: 978494741}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,9 +983,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -381822239
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: -79605257
+  m_SortingLayer: 2
+  m_SortingOrder: 999
   m_Sprite: {fileID: 21300000, guid: 6a1a5b6086b556e4fbc340d5e2e0403c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1005,7 +1005,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978494740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.40290296, y: -2.8490772, z: 0}
+  m_LocalPosition: {x: -3.57, y: -2.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 979593687}
   - component: {fileID: 979593686}
   - component: {fileID: 979593685}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 1199220047}
   - component: {fileID: 1199220049}
   - component: {fileID: 1199220048}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,7 +1392,7 @@ GameObject:
   - component: {fileID: 1223968337}
   - component: {fileID: 1223968339}
   - component: {fileID: 1223968338}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 1635960044}
   - component: {fileID: 1635960043}
   - component: {fileID: 1635960042}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1742,7 +1742,7 @@ GameObject:
   - component: {fileID: 1852311292}
   - component: {fileID: 1852311294}
   - component: {fileID: 1852311293}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1897,7 +1897,7 @@ GameObject:
   - component: {fileID: 1852841064}
   - component: {fileID: 1852841066}
   - component: {fileID: 1852841065}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2053,7 +2053,7 @@ GameObject:
   - component: {fileID: 1963153679}
   - component: {fileID: 1963153678}
   - component: {fileID: 1963153677}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
