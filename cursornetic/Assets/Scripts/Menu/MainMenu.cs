@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public void NewGame() {
+        Debug.Log("Loading level1");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame() {
+        Debug.Log("Quiting game");
         Application.Quit();
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 }
