@@ -10,12 +10,11 @@ public class EnemyController : MonoBehaviour {
 
     // Filed of view
     public GameObject Player;
-    public float FieldOfViewDistance = 100;
-    private bool chasePlayer;
+    public float FieldOfViewDistance = 5;
+    private bool chasePlayer = false;
 
     public void Start() {
         PathfindingToPlayer(true);
-        chasePlayer = true;
     }
     public void Update() {
         PathfindingToPlayer(CanSeePlayer());
@@ -47,13 +46,11 @@ public class EnemyController : MonoBehaviour {
             return false;
         }
 
-
         Vector2 playerPos = Player.transform.position;
         Vector2 enemyPos = this.transform.position;
         float distance = Vector2.Distance(enemyPos, playerPos);
 
-        bool d = FieldOfViewDistance >= distance;
-        return d;
+        return FieldOfViewDistance >= distance;
     }
     
     // Enables or disables the AIPath script which causes the enemy to follow the player
