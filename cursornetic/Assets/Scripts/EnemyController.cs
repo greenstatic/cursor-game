@@ -53,7 +53,6 @@ public class EnemyController : MonoBehaviour {
         float distance = Vector2.Distance(enemyPos, playerPos);
 
         bool d = FieldOfViewDistance >= distance;
-        Debug.Log(d);
         return d;
     }
     
