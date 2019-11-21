@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour {
     public float dashSpeed;
     private float dashTime;
     public float startDashTime;
-    private bool isFinished;
+    public bool isDashing;
     private Vector2 direction;
     public float startRechargeTime;
     private float rechargeTime;
@@ -47,10 +47,9 @@ public class playerController : MonoBehaviour {
         // Dash
         if (Input.GetButton("Dash")) {
             if (rechargeTime <= 0) {
-                isFinished = true;
-                Dash();
+                isDashing = true;
+                StartCoroutine(Dash());
                 rechargeTime = startRechargeTime;
-
             }
         }
 
@@ -63,28 +62,23 @@ public class playerController : MonoBehaviour {
         rechargeTime -= Time.fixedDeltaTime;
     }
 
-    public void Dash() {
+    IEnumerator Dash() {
         dashTime = startDashTime;
 
         // Play Dash Effect
         Instantiate(dashEffect, transform.position, Quaternion.identity);
+        direction = new Vector2(transform.right.x, transform.right.y);
 
-        while (true) {
-            if (isFinished) {
-                direction = new Vector2(transform.right.x, transform.right.y);
-                isFinished = false;
-            }
-            else {
-                if (dashTime <= 0) {
-                    isFinished = true;
-                    dashTime = startDashTime;
-                    break;
-                }
-                else {
-                    dashTime -= Time.deltaTime;
-                    //camAnim.SetTrigger("Shake");
-                    rb.AddForce(direction * dashSpeed);
-                }
+        while (isDashing) {
+
+            if (dashTime <= 0) {
+                yield return new WaitForSeconds(0.3f);
+                isDashing = false;
+                dashTime = startDashTime;
+            } else {
+                dashTime -= Time.deltaTime;
+                //camAnim.SetTrigger("Shake");
+                rb.AddForce(direction * dashSpeed);
             }
         }
     }
@@ -101,7 +95,7 @@ public class playerController : MonoBehaviour {
             EnemyController enemy = col.GetComponent<EnemyController>();
 
             if (enemy != null) {
-                if (isFinished) {
+                if (isDashing) {
                     Debug.Log("Enemy has died.");
                     enemy.Die();
                 }
