@@ -242,6 +242,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5025016620297851411}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &93102984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093864119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &120185280
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +702,7 @@ PrefabInstance:
     - target: {fileID: 4196714185688781277, guid: 0b8031ac9f851794e87f09329d41892c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
         type: 3}
@@ -768,6 +774,11 @@ PrefabInstance:
       propertyPath: FieldOfViewDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4196714185688781272, guid: 0b8031ac9f851794e87f09329d41892c,
+        type: 3}
+      propertyPath: enemyPos
+      value: 
+      objectReference: {fileID: 93102984}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b8031ac9f851794e87f09329d41892c, type: 3}
 --- !u!1 &1445024502
@@ -1031,6 +1042,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1981882222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4196714185848395727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2025652328 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7436130770959568843, guid: 40fedb0539b6bef41a9cf29092f52038,
@@ -1282,6 +1299,16 @@ PrefabInstance:
       propertyPath: FieldOfViewDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4196714185688781272, guid: 0b8031ac9f851794e87f09329d41892c,
+        type: 3}
+      propertyPath: startEludeTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196714185688781272, guid: 0b8031ac9f851794e87f09329d41892c,
+        type: 3}
+      propertyPath: enemyPos
+      value: 
+      objectReference: {fileID: 1981882222}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b8031ac9f851794e87f09329d41892c, type: 3}
 --- !u!1001 &5025016620297851411
