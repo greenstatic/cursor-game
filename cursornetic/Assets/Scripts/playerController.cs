@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour {
 
     private Rigidbody2D rb;
+
+    // Health variables
+    public GameObject healthBar;
+    private float health = 100;
 
     // Movements variables
     public float speed;
@@ -100,15 +105,24 @@ public class playerController : MonoBehaviour {
                     enemy.Die();
                 }
                 else {
-                    Die();
+                    TakeDamge(10f);
                 }
             }
         }
     }
 
-    public void Die() {
-        // TODO - implement die mechanics
-        Debug.Log("You died!");
-        //Destroy(gameObject);
+    public void TakeDamge(float damge) {
+
+        health -= damge;
+        Debug.Log(health);
+        healthBar.GetComponent<HealthBar>().SetSize(health/100);
+        if (health <= 0)
+            GameOver();
+    }
+
+    public void GameOver() {
+        Destroy(gameObject);
+        // play some game over animation
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

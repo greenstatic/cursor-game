@@ -21,6 +21,9 @@ public class EnemyController : MonoBehaviour {
     private float eludeTime;
     private float distToPlayer;
 
+    // Death
+    public GameObject dieParticle;
+
     public void Start() {
         player = GameObject.FindWithTag("Player");
         PathfindingToPlayer(true);
@@ -31,7 +34,7 @@ public class EnemyController : MonoBehaviour {
         
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
 
-        //Elude(player, distToPlayer);
+        Elude(player, distToPlayer);
     }
 
     //private void OnTriggerEnter2D(Collider2D col) {
@@ -42,6 +45,7 @@ public class EnemyController : MonoBehaviour {
     //}
 
     public void Die() {
+        Instantiate(dieParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
@@ -79,9 +83,8 @@ public class EnemyController : MonoBehaviour {
             script.enabled = false;
 
             while (eludeTime >= 0) {
-                //rb.AddForce(direction * eludeSpeed);
+                //player.GetComponentInChildren<Rigidbody2D>().AddForce(direction * eludeSpeed);
                 enemyPos.position = (Vector2) enemyPos.position + direction * new Vector2(0.1f, 0.1f);
-
                 eludeTime -= Time.deltaTime;
             }
 
