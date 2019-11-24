@@ -14,6 +14,8 @@ TagManager:
   - Left
   - Undefined
   - FadeTransition
+  - ButtonDoor
+  - ButtonWall
   layers:
   - Default
   - TransparentFX
