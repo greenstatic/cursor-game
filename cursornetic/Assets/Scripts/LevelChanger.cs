@@ -41,14 +41,6 @@ public class LevelChanger : MonoBehaviour {
 
         } else if (levelIndex == 2) {
 
-        } else if (levelIndex == 3) {
-
-        } else if (levelIndex == 4) {
-
-        } else if (levelIndex == 5) {
-
-        } else if (levelIndex == 6) {
-
         }
     }
 
