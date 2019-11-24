@@ -9,7 +9,6 @@ public class playerController : MonoBehaviour {
 
     // Health variables
     public GameObject healthBar;
-    private float health = 100;
 
     // Movements variables
     public float speed;
@@ -31,6 +30,9 @@ public class playerController : MonoBehaviour {
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         rechargeTime = 0;
+
+        // Initialize the health bar - if we change scenes the health is not necessarly 100%.
+        healthBar.GetComponent<HealthBar>().SetSize(GlobalState.health / 100);
     }
 
     void Update() {
@@ -112,11 +114,9 @@ public class playerController : MonoBehaviour {
     }
 
     public void TakeDamge(float damge) {
-
-        health -= damge;
-        Debug.Log(health);
-        healthBar.GetComponent<HealthBar>().SetSize(health/100);
-        if (health <= 0)
+        GlobalState.health -= damge;
+        healthBar.GetComponent<HealthBar>().SetSize(GlobalState.health / 100);
+        if (GlobalState.health <= 0)
             GameOver();
     }
 

@@ -7,13 +7,8 @@ public class HealthBar : MonoBehaviour
 {
     private RectTransform bar;
 
-    // Start is called before the first frame update
-    void Start(){
-        bar = GetComponent<RectTransform>();
-    }
-
     public void SetSize(float sizeNormalized) {
-        Debug.Log(bar.localScale);
+        bar = GetComponent<RectTransform>();
         bar.localScale = new Vector2(sizeNormalized, 0.3f);
 
         if (sizeNormalized > 0.5f)
