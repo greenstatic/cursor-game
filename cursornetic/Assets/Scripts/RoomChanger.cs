@@ -39,7 +39,7 @@ public class RoomChanger : MonoBehaviour {
                 interval = Left;
 
             // Setting location of player and camera for next room
-            player.transform.position = doorLoc + interval;
+            player.transform.position = doorLoc + interval*2;
             cam.transform.position = doorLoc + interval;
         }
     }

@@ -16,6 +16,7 @@ TagManager:
   - FadeTransition
   - ButtonDoor
   - ButtonWall
+  - Bullet
   layers:
   - Default
   - TransparentFX

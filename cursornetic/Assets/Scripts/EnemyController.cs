@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour {
     //}
 
     public void Die() {
-        Instantiate(dieParticle, transform.position, Quaternion.identity);
+        //Instantiate(dieParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
