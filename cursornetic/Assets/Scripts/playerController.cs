@@ -115,8 +115,14 @@ public class playerController : MonoBehaviour {
         if (col.CompareTag("ButtonWall")) {
             ButtonController button = col.GetComponent<ButtonController>();
             if (isDashing) {
-                Debug.Log("Collision Detected");
                 button.Toggle();
+            }
+        }
+
+        if (col.CompareTag("ButtonWall")) {
+            ButtonController button = col.GetComponent<ButtonController>();
+            if (isDashing) {
+                //sblocca porte
             }
         }
     }

@@ -9,10 +9,8 @@ public class ElectricWallController : MonoBehaviour
     public Collider2D coll;
 
     public void Start() {
-        if (state)
-            TurnOn();
-        else
-            TurnOff();
+        Toggle();
+        Toggle();
     }
 
     public void TurnOn() {

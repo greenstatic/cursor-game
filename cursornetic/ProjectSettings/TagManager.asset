@@ -17,6 +17,7 @@ TagManager:
   - ButtonDoor
   - ButtonWall
   - Bullet
+  - ElectricWall
   layers:
   - Default
   - TransparentFX

@@ -44,6 +44,11 @@ public class CircleBullet : MonoBehaviour
                 button.Toggle();
         }
 
+        if (hit.CompareTag("ButtonWall")) {
+            ButtonController button = hit.GetComponent<ButtonController>();
+            //sblocca porte
+        }
+
         Destroy(gameObject);
     }
 }

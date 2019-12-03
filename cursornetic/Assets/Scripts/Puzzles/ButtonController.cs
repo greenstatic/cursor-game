@@ -7,6 +7,11 @@ public class ButtonController : MonoBehaviour
     private bool state = false;
     public SpriteRenderer sprite;
     public Sprite spriteOn, spriteOff;
+    private GameObject[] walls;
+
+    public void Start() {
+       walls = GameObject.FindGameObjectsWithTag("ElectricWall");
+    }
 
     public void TurnOn() {
         state = true;
@@ -23,14 +28,10 @@ public class ButtonController : MonoBehaviour
             TurnOn();
         else
             TurnOff();
-    }
 
-    /*
-    public void OnTriggerEnter2D(Collider2D col) {
-        //GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //Toggle();
-        sprite.sprite = spriteOn;
-        Debug.Log("Collision detected");
+        for (int i = 0; i < walls.Length; i++) {
+            ElectricWallController wallScript = walls[i].GetComponent<ElectricWallController>();
+            wallScript.Toggle();
+        }
     }
-    */
 }
