@@ -17,8 +17,8 @@ public class CircleBullet : MonoBehaviour
         lifeTimer = lifeDuration;
     }
 
-    void Update() {
-        lifeTimer -= Time.deltaTime;
+    void FixedUpdate() {
+        lifeTimer -= Time.fixedDeltaTime;
         if (lifeTimer <= 0f){
             Destroy(gameObject);
         }
@@ -37,7 +37,13 @@ public class CircleBullet : MonoBehaviour
                 enemy.TakeDamage(damage);
             }
         }
-        
+
+        if (hit.CompareTag("ButtonWall")) {
+            ButtonController button = hit.GetComponent<ButtonController>();
+                Debug.Log("Collision Detected");
+                button.Toggle();
+        }
+
         Destroy(gameObject);
     }
 }

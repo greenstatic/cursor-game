@@ -111,6 +111,14 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
+
+        if (col.CompareTag("ButtonWall")) {
+            ButtonController button = col.GetComponent<ButtonController>();
+            if (isDashing) {
+                Debug.Log("Collision Detected");
+                button.Toggle();
+            }
+        }
     }
 
     public void TakeDamge(float damge) {

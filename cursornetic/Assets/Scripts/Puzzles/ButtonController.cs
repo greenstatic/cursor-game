@@ -19,21 +19,18 @@ public class ButtonController : MonoBehaviour
     }
 
     public void Toggle() {
-        if (state)
+        if (!state)
             TurnOn();
         else
             TurnOff();
     }
 
+    /*
     public void OnTriggerEnter2D(Collider2D col) {
-        if (col.CompareTag("Player")) {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player.GetComponent<playerController>().isDashing) {
-                Toggle();
-            }
-
-        } else if (col.CompareTag("Bullet")) {
-            Toggle();
-        }
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //Toggle();
+        sprite.sprite = spriteOn;
+        Debug.Log("Collision detected");
     }
+    */
 }
