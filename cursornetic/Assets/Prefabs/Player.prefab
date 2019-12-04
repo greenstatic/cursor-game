@@ -184,10 +184,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dda6c3faaa3c434f8fcb962d7ae3951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   speed: 150
   angle: 0
   dashSpeed: 1000
   startDashTime: 0.1
+  isDashing: 0
   startRechargeTime: 1
   dashEffect: {fileID: 1933872143644759828, guid: 22f184547db52514486d6bc2e3c645aa,
     type: 3}
