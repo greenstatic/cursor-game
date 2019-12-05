@@ -111,6 +111,20 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
+
+        if (col.CompareTag("ButtonWall")) {
+            ButtonController button = col.GetComponent<ButtonController>();
+            if (isDashing) {
+                button.Toggle();
+            }
+        }
+
+        if (col.CompareTag("ButtonWall")) {
+            ButtonController button = col.GetComponent<ButtonController>();
+            if (isDashing) {
+                //sblocca porte
+            }
+        }
     }
 
     public void TakeDamge(float damge) {

@@ -6,7 +6,6 @@ using Pathfinding;
 public class EnemyController : MonoBehaviour {
 
     public Transform enemyPos;
-    public ParticleSystem deathParticle;
     public int health = 100;
 
     // Filed of view
@@ -22,7 +21,7 @@ public class EnemyController : MonoBehaviour {
     private float distToPlayer;
 
     // Death
-    public GameObject dieParticle;
+    public ParticleSystem deathParticle;
 
     public void Start() {
         player = GameObject.FindWithTag("Player");
