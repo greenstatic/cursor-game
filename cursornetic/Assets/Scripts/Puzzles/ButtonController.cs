@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    private bool state = false;
+    private bool state = false; //T=on, F=off
     public SpriteRenderer sprite;
     public Sprite spriteOn, spriteOff;
     private GameObject[] walls;
@@ -15,19 +15,21 @@ public class ButtonController : MonoBehaviour
 
     public void TurnOn() {
         state = true;
+        GetComponent<Animator>().SetTrigger("TurnOn");
         sprite.sprite = spriteOn;
     }
 
     public void TurnOff() {
         state = false;
+        GetComponent<Animator>().SetTrigger("TurnOff");
         sprite.sprite = spriteOff;
     }
 
     public void Toggle() {
-        if (!state)
-            TurnOn();
-        else
+        if (state)
             TurnOff();
+        else
+            TurnOn();
 
         for (int i = 0; i < walls.Length; i++) {
             ElectricWallController wallScript = walls[i].GetComponent<ElectricWallController>();

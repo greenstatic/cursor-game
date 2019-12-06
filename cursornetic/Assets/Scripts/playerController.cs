@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class playerController : MonoBehaviour {
 
     private Rigidbody2D rb;
+    private GameObject camera;
 
     // Health variables
     public GameObject healthBar;
+    private Animator animator;
 
     // Movements variables
     public float speed;
@@ -29,6 +31,8 @@ public class playerController : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        camera = GameObject.FindWithTag("MainCamera");
+        animator = GetComponent<Animator>();
         rechargeTime = 0;
 
         // Initialize the health bar - if we change scenes the health is not necessarly 100%.
@@ -41,6 +45,8 @@ public class playerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        
+        direction = new Vector2(transform.right.x, transform.right.y);
 
         // Translation
         rb.velocity = moveInput * speed * Time.deltaTime;
@@ -74,7 +80,6 @@ public class playerController : MonoBehaviour {
 
         // Play Dash Effect
         Instantiate(dashEffect, transform.position, Quaternion.identity);
-        direction = new Vector2(transform.right.x, transform.right.y);
 
         while (isDashing) {
 
@@ -84,7 +89,7 @@ public class playerController : MonoBehaviour {
                 dashTime = startDashTime;
             } else {
                 dashTime -= Time.deltaTime;
-                //camAnim.SetTrigger("Shake");
+                camera.GetComponent<cameraController>().ShakeCamera();
                 rb.AddForce(direction * dashSpeed);
             }
         }
@@ -132,6 +137,9 @@ public class playerController : MonoBehaviour {
         healthBar.GetComponent<HealthBar>().SetSize(GlobalState.health / 100);
         if (GlobalState.health <= 0)
             GameOver();
+        animator.SetTrigger("TakingDamge");
+        transform.position -= (Vector3) direction*2;
+
     }
 
     public void GameOver() {

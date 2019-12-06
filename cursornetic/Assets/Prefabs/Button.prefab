@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2290888589009249788}
   - component: {fileID: 2290888589009249782}
   - component: {fileID: 2290888589009249783}
+  - component: {fileID: -3121161984642642782}
   - component: {fileID: 2290888589009249776}
   m_Layer: 0
   m_Name: Button
@@ -169,6 +170,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0.5230903, y: 0.1999781}
   m_Size: {x: 2.9999998, y: 2.2165198}
   m_Direction: 1
+--- !u!95 &-3121161984642642782
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290888589009249789}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b15be392d4f5b33448a592c046cb891e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2290888589009249776
 MonoBehaviour:
   m_ObjectHideFlags: 0
