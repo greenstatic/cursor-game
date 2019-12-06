@@ -4,7 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Enemy
+  - 1
+  - 2
+  - 3
+  - Up
+  - Right
+  - Down
+  - Left
+  - Undefined
+  - FadeTransition
+  - ButtonDoor
   - ButtonWall
+  - Bullet
+  - ElectricWall
   layers:
   - Default
   - TransparentFX
@@ -39,6 +52,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1465858625
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 3913145057
+    locked: 0
+  - name: UI
+    uniqueID: 4215362039
     locked: 0

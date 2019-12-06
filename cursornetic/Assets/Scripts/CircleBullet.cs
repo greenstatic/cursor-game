@@ -31,7 +31,7 @@ public class CircleBullet : MonoBehaviour
         }
 
         // If hit enemy, reduce health of enemy
-        if (hit.name == "Enemy") {
+        if (hit.tag == "Enemy") {
             EnemyController enemy = hit.gameObject.GetComponent<EnemyController>();
             if (enemy != null) {
                 enemy.TakeDamage(damage);
