@@ -16,8 +16,11 @@ TagManager:
   - FadeTransition
   - ButtonDoor
   - ButtonWall
+<<<<<<< Updated upstream
   - Bullet
   - ElectricWall
+=======
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
