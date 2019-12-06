@@ -24,7 +24,7 @@ public class LevelChanger : MonoBehaviour {
         }
     }
 
-    private void OnLevelWasLoaded() {
+    private void OnLevelWasLoadedCustom(Scene scene, LoadSceneMode mode) {
 
         levelIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -42,6 +42,14 @@ public class LevelChanger : MonoBehaviour {
         } else if (levelIndex == 2) {
 
         }
+    }
+
+    public void onEnable() {
+        SceneManager.sceneLoaded += OnLevelWasLoadedCustom;
+    }
+
+    public void onDisable() {
+        SceneManager.sceneLoaded -= OnLevelWasLoadedCustom;
     }
 
     
