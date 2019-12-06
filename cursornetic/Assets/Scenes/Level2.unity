@@ -537,6 +537,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ButtonDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
+        type: 3}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
+        type: 3}
     - target: {fileID: 2290888589009249777, guid: b5042c16e849d7f47825adbf1f230050,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -633,18 +645,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.415418
       objectReference: {fileID: 0}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOn
-      value: 
-      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
-        type: 3}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOff
-      value: 
-      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5042c16e849d7f47825adbf1f230050, type: 3}
 --- !u!4 &273425075 stripped
@@ -2582,12 +2582,12 @@ PrefabInstance:
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.5
+      value: -32.58
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
@@ -2714,6 +2714,66 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1199497171}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1206234756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206234757}
+  - component: {fileID: 1206234759}
+  - component: {fileID: 1206234758}
+  m_Layer: 0
+  m_Name: DialogTriggerGear
+  m_TagString: DialogTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1206234757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206234756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 44.19, z: -3344.7812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1206234758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206234756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d2825f1ffc14343b375a8934f2df6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1206234759
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206234756}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1 &1252587082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,6 +3883,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ButtonDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
+        type: 3}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
+        type: 3}
     - target: {fileID: 2290888589009249777, guid: b5042c16e849d7f47825adbf1f230050,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3919,18 +3991,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.415418
       objectReference: {fileID: 0}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOn
-      value: 
-      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
-        type: 3}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOff
-      value: 
-      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5042c16e849d7f47825adbf1f230050, type: 3}
 --- !u!4 &1666801849 stripped
@@ -4571,6 +4631,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ButtonDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
+        type: 3}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
+        type: 3}
     - target: {fileID: 2290888589009249777, guid: b5042c16e849d7f47825adbf1f230050,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4667,18 +4739,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.415418
       objectReference: {fileID: 0}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOn
-      value: 
-      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
-        type: 3}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOff
-      value: 
-      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5042c16e849d7f47825adbf1f230050, type: 3}
 --- !u!4 &2032900914 stripped

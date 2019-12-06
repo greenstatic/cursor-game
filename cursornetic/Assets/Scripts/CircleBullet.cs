@@ -49,6 +49,11 @@ public class CircleBullet : MonoBehaviour
             //sblocca porte
         }
 
+        if (hit.CompareTag("DialogTrigger")) {
+            // Ignore
+            return;
+        }
+
         Destroy(gameObject);
     }
 }

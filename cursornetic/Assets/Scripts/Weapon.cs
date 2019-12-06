@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour {
     public GameObject bulletUI2;
     public GameObject bulletUI3;
 
-    private int maxBullets = 3;  // this should reflect bulletUI* elements
+    private static int maxBullets = 3;  // this should reflect bulletUI* elements
     private float lastBulletSpawn = 0;
 
     // Start is called before the first frame update
@@ -22,6 +22,10 @@ public class Weapon : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (!GlobalState.playerHasWeapon) {
+            return;
+        }
+
         float time = Time.time;
         if (GetNumberOfBullets() < maxBullets && lastBulletSpawn + bulletRefillTimeDelta < time) {
             // respawn
@@ -86,5 +90,12 @@ public class Weapon : MonoBehaviour {
 
     bool CanShoot() {
         return GlobalState.bullets > 0;
+    }
+
+    public static void EnableWeapon() {
+        if (!GlobalState.playerHasWeapon) {
+            GlobalState.playerHasWeapon = true;
+            GlobalState.bullets = maxBullets;
+        }
     }
 }

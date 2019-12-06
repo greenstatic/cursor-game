@@ -18,6 +18,7 @@ TagManager:
   - ButtonWall
   - Bullet
   - ElectricWall
+  - DialogTrigger
   layers:
   - Default
   - TransparentFX
