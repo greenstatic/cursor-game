@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Basically the same class of EnemyController but with some
+// important changes:
+// -No A* ---> Brainy will move based on BrainyBehaviour.cs
+// -No Elude method
 public class BrainyController : MonoBehaviour {
 
-    public Transform enemyPos;
     public int health = 300;
-    private float distToPlayer;
 
     // Filed of view
     private GameObject player;
@@ -18,15 +20,11 @@ public class BrainyController : MonoBehaviour {
 
     public void Start() {
         player = GameObject.FindWithTag("Player");
-        PathfindingToPlayer(true);
+        Movement(true);
     }
 
     public void Update() {
-        PathfindingToPlayer(CanSeePlayer());
-
-        distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
-
-        //Elude(player, distToPlayer);
+        Movement(CanSeePlayer());
     }
 
     public bool CanSeePlayer() {
@@ -40,6 +38,23 @@ public class BrainyController : MonoBehaviour {
         float distance = Vector2.Distance(enemyPos, playerPos);
 
         return FieldOfViewDistance >= distance;
+    }
+
+    public void Movement(bool enable) {
+        // chasePlayer is a flag to check if the enable parameter has changed or not.
+        // This is a minor optimization so we do not need to call GetComponent constantly.
+        if (chasePlayer == enable) {
+            return;
+        }
+
+        BrainyBehaviour script = this.GetComponent<BrainyBehaviour>();
+        if (script == null) {
+            Debug.LogError("Failed to find BrainyBehaviour script");
+            return;
+        }
+
+        script.enabled = enable;
+        chasePlayer = enable;
     }
 
     public void TakeDamage(int damage) {

@@ -66,15 +66,9 @@ public class playerController : MonoBehaviour {
             }
         }
 
-        /* // Roll
-        if (Input.GetButton("Roll")) {
-            Roll();
-        }
-        */
-
         rechargeTime -= Time.fixedDeltaTime;
     }
-
+    
     IEnumerator Dash() {
         dashTime = startDashTime;
 
@@ -95,21 +89,13 @@ public class playerController : MonoBehaviour {
         }
     }
 
-    /*
-    public void Roll() {
-        
-    }
-    */
-
-
     public void OnTriggerEnter2D(Collider2D col) {
         if (col.CompareTag("Enemy")) {
             EnemyController enemy = col.GetComponent<EnemyController>();
 
             if (enemy != null) {
                 if (isDashing) {
-                    Debug.Log("Enemy has died.");
-                    enemy.Die();
+                    enemy.TakeDamage(100); 
                 }
                 else {
                     TakeDamge(10f);
@@ -124,7 +110,7 @@ public class playerController : MonoBehaviour {
             }
         }
 
-        if (col.CompareTag("ButtonWall")) {
+        if (col.CompareTag("ButtonDoor")) {
             ButtonController button = col.GetComponent<ButtonController>();
             if (isDashing) {
                 //sblocca porte

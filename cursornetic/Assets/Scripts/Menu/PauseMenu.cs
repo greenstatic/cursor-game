@@ -3,32 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
-{
+public class PauseMenu : MonoBehaviour {
     public static bool GameIsPaused = false;
     public static int PauseMenuSceneBuildIndex;
     public static PauseMenuActivate pauseMenuActiveScript;
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Cursor.visible = false;
             Resume();
         }
     }
 
-    public void ResumeGame()
-    {
+    public void ResumeGame() {
         Resume();
     }
 
-    public void QuitGame()
-    {
+    public void QuitGame() {
         Application.Quit();
     }
 
-    public static void Resume()
-    {
+    public static void Resume() {
         Debug.Log("Resuming game");
         GameIsPaused = false;
         Time.timeScale = 1f;
@@ -36,8 +32,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByBuildIndex(PauseMenuSceneBuildIndex));
     }
 
-    public static void Pause(PauseMenuActivate p)
-    {
+    public static void Pause(PauseMenuActivate p) {
         PauseMenuSceneBuildIndex = SceneManager.sceneCountInBuildSettings - 1; 
         
         pauseMenuActiveScript = p;

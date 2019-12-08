@@ -18,7 +18,6 @@ public class EnemyController : MonoBehaviour {
     public float eludeDist = 3;
     public float startEludeTime;
     private float eludeTime;
-    private float distToPlayer;
 
     // Death
     public ParticleSystem deathParticle;
@@ -30,8 +29,6 @@ public class EnemyController : MonoBehaviour {
 
     public void Update() {
         PathfindingToPlayer(CanSeePlayer());
-        
-        distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
 
         //Elude(player, distToPlayer);
     }
