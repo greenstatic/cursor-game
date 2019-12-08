@@ -33,15 +33,8 @@ public class EnemyController : MonoBehaviour {
         
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
 
-        Elude(player, distToPlayer);
+        //Elude(player, distToPlayer);
     }
-
-    //private void OnTriggerEnter2D(Collider2D col) {
-    //    if (col.CompareTag("Player")) {
-    //        if (true) //we need a parameter that tells us if the player is dashing!!
-    //            Die();
-    //    }
-    //}
 
     public void Die() {
         //Instantiate(dieParticle, transform.position, Quaternion.identity);
