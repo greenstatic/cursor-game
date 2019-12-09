@@ -19,6 +19,7 @@ TagManager:
   - Bullet
   - ElectricWall
   - DialogTrigger
+  - Ditch
   layers:
   - Default
   - TransparentFX

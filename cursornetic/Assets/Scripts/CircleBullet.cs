@@ -40,16 +40,20 @@ public class CircleBullet : MonoBehaviour
 
         if (hit.CompareTag("ButtonWall")) {
             ButtonController button = hit.GetComponent<ButtonController>();
-                Debug.Log("Collision Detected");
-                button.Toggle();
+            button.Toggle();
         }
 
+        // TODO - doors
         if (hit.CompareTag("ButtonWall")) {
             ButtonController button = hit.GetComponent<ButtonController>();
-            //sblocca porte
         }
 
         if (hit.CompareTag("DialogTrigger")) {
+            // Ignore
+            return;
+        }
+
+        if (hit.CompareTag("Ditch")) {
             // Ignore
             return;
         }
