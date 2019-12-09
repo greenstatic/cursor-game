@@ -5,8 +5,8 @@ using Pathfinding;
 
 public class EnemyController : MonoBehaviour {
 
-    public Transform enemyPos;
-    public int health = 100;
+    private Transform enemyPos;
+    public int health;
 
     // Filed of view
     private GameObject player;
@@ -23,6 +23,13 @@ public class EnemyController : MonoBehaviour {
     public ParticleSystem deathParticle;
 
     public void Start() {
+        if (gameObject.name.Equals("Minion")) {
+            health = 100;
+        } else if (gameObject.name.Equals("Brainy")) {
+            health = 500;
+        }
+
+        enemyPos = gameObject.transform;
         player = GameObject.FindWithTag("Player");
         PathfindingToPlayer(true);
     }
