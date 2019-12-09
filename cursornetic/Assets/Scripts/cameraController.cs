@@ -21,6 +21,6 @@ public class cameraController : MonoBehaviour {
     }
 
     public void ShakeCamera() {
-        animator.SetTrigger("Shake");
+        // animator.SetTrigger("Shake");
     }
 }
