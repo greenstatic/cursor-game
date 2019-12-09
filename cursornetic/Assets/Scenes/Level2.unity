@@ -537,18 +537,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ButtonDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOn
-      value: 
-      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
-        type: 3}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOff
-      value: 
-      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
-        type: 3}
     - target: {fileID: 2290888589009249777, guid: b5042c16e849d7f47825adbf1f230050,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -645,6 +633,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.415418
       objectReference: {fileID: 0}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
+        type: 3}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5042c16e849d7f47825adbf1f230050, type: 3}
 --- !u!4 &273425075 stripped
@@ -2696,17 +2696,17 @@ PrefabInstance:
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.15640496
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.15640496
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.15640496
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312301, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
@@ -2765,6 +2765,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5025016620374312339, guid: 2c824c598ebc36747980e60fbb3ab4da,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc330ca60b66bc94fb6e2012b4dcbfce,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c824c598ebc36747980e60fbb3ab4da, type: 3}
 --- !u!1 &1199497172 stripped
@@ -4026,18 +4032,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ButtonDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOn
-      value: 
-      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
-        type: 3}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOff
-      value: 
-      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
-        type: 3}
     - target: {fileID: 2290888589009249777, guid: b5042c16e849d7f47825adbf1f230050,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4134,6 +4128,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.415418
       objectReference: {fileID: 0}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
+        type: 3}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5042c16e849d7f47825adbf1f230050, type: 3}
 --- !u!4 &1666801849 stripped
@@ -4774,18 +4780,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ButtonDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOn
-      value: 
-      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
-        type: 3}
-    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
-        type: 3}
-      propertyPath: spriteOff
-      value: 
-      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
-        type: 3}
     - target: {fileID: 2290888589009249777, guid: b5042c16e849d7f47825adbf1f230050,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4882,6 +4876,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.415418
       objectReference: {fileID: 0}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: 21300000, guid: 0aa5f3a8b8867e048a83527129c15df2,
+        type: 3}
+    - target: {fileID: 2290888589009249776, guid: b5042c16e849d7f47825adbf1f230050,
+        type: 3}
+      propertyPath: spriteOff
+      value: 
+      objectReference: {fileID: 21300000, guid: 6674193a389654143a8c746f422244d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5042c16e849d7f47825adbf1f230050, type: 3}
 --- !u!4 &2032900914 stripped
