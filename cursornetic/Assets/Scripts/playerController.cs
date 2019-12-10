@@ -7,10 +7,10 @@ public class playerController : MonoBehaviour {
 
     private Rigidbody2D rb;
     private GameObject camera;
+    private Animator animator;
 
     // Health variables
     public GameObject healthBar;
-    private Animator animator;
 
     // Movements variables
     public float speed;
@@ -45,11 +45,13 @@ public class playerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        
+
         direction = new Vector2(transform.right.x, transform.right.y);
 
         // Translation
         rb.velocity = moveInput * speed * Time.deltaTime;
+
+        animator.SetFloat("PlayerVelocity", rb.velocity.sqrMagnitude);
 
         // Rotation
         if (moveInput != Vector2.zero) {
@@ -77,6 +79,9 @@ public class playerController : MonoBehaviour {
 
     IEnumerator Dash() {
         dashTime = startDashTime;
+
+        animator.SetTrigger("isDashing");
+        yield return new WaitForSeconds(0.3f);
 
         // Play Dash Effect
         Instantiate(dashEffect, transform.position, Quaternion.identity);
