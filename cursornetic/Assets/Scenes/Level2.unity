@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4f9859e19939d429807bce11766771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextDoor: {fileID: 0}
+  nextDoor: {fileID: 1744317743}
 --- !u!95 &115201933
 Animator:
   serializedVersion: 3
@@ -3159,17 +3159,17 @@ PrefabInstance:
     - target: {fileID: 5025016620374312337, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.029999971
+      value: -0.6149419
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312337, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.051100254
+      value: 0.051100217
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312337, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_Radius
-      value: 0.47692657
+      value: 2.13148
       objectReference: {fileID: 0}
     - target: {fileID: 1199497173, guid: 2c824c598ebc36747980e60fbb3ab4da, type: 3}
       propertyPath: bulletUI1
@@ -3545,7 +3545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4f9859e19939d429807bce11766771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextDoor: {fileID: 0}
+  nextDoor: {fileID: 1908682921}
 --- !u!95 &1294877869
 Animator:
   serializedVersion: 3
@@ -4385,7 +4385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4f9859e19939d429807bce11766771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextDoor: {fileID: 0}
+  nextDoor: {fileID: 115201930}
 --- !u!95 &1744317746
 Animator:
   serializedVersion: 3
@@ -4826,7 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4f9859e19939d429807bce11766771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextDoor: {fileID: 0}
+  nextDoor: {fileID: 1294877866}
 --- !u!95 &1908682924
 Animator:
   serializedVersion: 3
