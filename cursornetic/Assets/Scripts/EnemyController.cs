@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
 
     public Transform enemyPos;
     public int health = 100;
+    private Animator animator;
 
     // Filed of view
     private GameObject player;
@@ -25,6 +26,7 @@ public class EnemyController : MonoBehaviour {
 
     public void Start() {
         player = GameObject.FindWithTag("Player");
+        animator = GetComponentInChildren<Animator>();
         PathfindingToPlayer(true);
     }
 
@@ -33,7 +35,7 @@ public class EnemyController : MonoBehaviour {
         
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
 
-        Elude(player, distToPlayer);
+        //Elude(player, distToPlayer);
     }
 
     //private void OnTriggerEnter2D(Collider2D col) {
@@ -45,9 +47,16 @@ public class EnemyController : MonoBehaviour {
 
     public void Die() {
         //Instantiate(dieParticle, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<AIPath>().enabled = false;
+        StartCoroutine(waitForAnimation());
     }
 
+    IEnumerator waitForAnimation() {
+        animator.SetTrigger("Die");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(gameObject);
+    }
 
     public void TakeDamage(int damage) {
         health -= damage;
