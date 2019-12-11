@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+public enum EnemyType { Unknown, Minion, Brainy };
+
 public class EnemyController : MonoBehaviour {
 
     public Transform enemyPos;
     public int health = 100;
     private Animator animator;
 
-    // Filed of view
+    // Field of view
+    public bool enableFOV = true;
     private GameObject player;
     public float FieldOfViewDistance = 5;
     private bool chasePlayer = false;
 
     // Elude
+    public bool enableElude = true;
     public float eludeSpeed = 2;
     public float eludeDist = 3;
     public float startEludeTime;
@@ -27,15 +31,33 @@ public class EnemyController : MonoBehaviour {
     public void Start() {
         player = GameObject.FindWithTag("Player");
         animator = GetComponentInChildren<Animator>();
-        PathfindingToPlayer(true);
+
+        if (this.GetEnemyType() == EnemyType.Minion) {
+            FOVDistancePathFindingInit();
+        }
+
+        if (this.GetEnemyType() == EnemyType.Brainy) {
+            KeepDistancePathFindingInit();
+        }
+            
     }
 
     public void Update() {
-        PathfindingToPlayer(CanSeePlayer());
+
+        if (this.GetEnemyType() == EnemyType.Minion) {
+            FOVDistancePathFindingUpdate();
+        }
+
+        if (this.GetEnemyType() == EnemyType.Brainy) {
+            KeepDistancePathFindingUpdate();
+        }
 
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
 
-        //Elude(player, distToPlayer);
+        if (enableElude) {
+            // We really don't like elude :)
+            //Elude(player, distToPlayer);
+        }
     }
 
     //private void OnTriggerEnter2D(Collider2D col) {
@@ -134,5 +156,34 @@ public class EnemyController : MonoBehaviour {
 
         script.enabled = enable;
         chasePlayer = enable;
+    }
+
+    public EnemyType GetEnemyType() {
+        if (this.name.ToLower().StartsWith("enemy")) {
+            return EnemyType.Minion;
+        }
+
+        if (this.name.ToLower().StartsWith("brainy")) {
+            return EnemyType.Brainy;
+        }
+
+        return EnemyType.Unknown;
+    }
+
+    private void KeepDistancePathFindingUpdate() {
+        // TODO
+    }
+
+    private void KeepDistancePathFindingInit() {
+        // TODO
+    }
+
+    private void FOVDistancePathFindingUpdate() {
+        if (enableFOV) {
+            PathfindingToPlayer(CanSeePlayer());
+        }
+    }
+    private void FOVDistancePathFindingInit() {
+        PathfindingToPlayer(true);
     }
 }
