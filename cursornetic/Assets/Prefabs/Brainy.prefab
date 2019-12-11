@@ -126,11 +126,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8802215744372752348}
-  - component: {fileID: 8802215744372752349}
   - component: {fileID: 8802215744372752350}
   - component: {fileID: 3784340059295489384}
   - component: {fileID: 8802215744372752336}
   - component: {fileID: 8802215744372752337}
+  - component: {fileID: 2217826796132114271}
   m_Layer: 0
   m_Name: Brainy
   m_TagString: Enemy
@@ -153,42 +153,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &8802215744372752349
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8802215744372752338}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.014576435, y: 0.85698235}
-      - {x: -0.31292844, y: 0.47276318}
-      - {x: -0.15709966, y: 0.13997161}
-      - {x: -0.2964654, y: -0.08061421}
-      - {x: -0.58251333, y: -0.04773724}
-      - {x: -0.4581015, y: -0.8173835}
-      - {x: 0.46782708, y: -0.8503707}
-      - {x: 0.6305866, y: -0.07347691}
-      - {x: 0.30657238, y: -0.118282646}
-      - {x: 0.15415907, y: 0.12381339}
-      - {x: 0.3095131, y: 0.47748566}
 --- !u!114 &8802215744372752350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,3 +254,19 @@ MonoBehaviour:
   eludeDist: 3
   startEludeTime: 0
   deathParticle: {fileID: 0}
+--- !u!58 &2217826796132114271
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802215744372752338}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.28}
+  serializedVersion: 2
+  m_Radius: 0.56

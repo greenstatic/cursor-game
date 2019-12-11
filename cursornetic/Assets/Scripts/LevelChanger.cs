@@ -25,7 +25,7 @@ public class LevelChanger : MonoBehaviour {
     }
 
     private void OnLevelWasLoadedCustom(Scene scene, LoadSceneMode mode) {
-        Debug.Log("YEE");
+
         levelIndex = SceneManager.GetActiveScene().buildIndex;
 
         // Retrieving camera and player objects in cpu scene
