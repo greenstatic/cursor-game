@@ -31,12 +31,24 @@ public class EnemyController : MonoBehaviour {
     public void Start() {
         player = GameObject.FindWithTag("Player");
         animator = GetComponentInChildren<Animator>();
-        PathfindingToPlayer(true);
+
+        if (this.GetEnemyType() == EnemyType.Minion) {
+            FOVDistancePathFindingInit();
+        }
+
+        if (this.GetEnemyType() == EnemyType.Brainy) {
+            KeepDistancePathFindingInit();
+        }
+            
     }
 
     public void Update() {
-        if (enableFOV) {
-            PathfindingToPlayer(CanSeePlayer());
+        if (this.GetEnemyType() == EnemyType.Minion) {
+            FOVDistancePathFindingUpdate();
+        }
+
+        if (this.GetEnemyType() == EnemyType.Brainy) {
+            KeepDistancePathFindingUpdate();
         }
 
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
@@ -150,5 +162,22 @@ public class EnemyController : MonoBehaviour {
         }
 
         return EnemyType.Unknown;
+    }
+
+    private void KeepDistancePathFindingUpdate() {
+        // TODO
+    }
+
+    private void KeepDistancePathFindingInit() {
+        // TODO
+    }
+
+    private void FOVDistancePathFindingUpdate() {
+        if (enableFOV) {
+            PathfindingToPlayer(CanSeePlayer());
+        }
+    }
+    private void FOVDistancePathFindingInit() {
+        PathfindingToPlayer(true);
     }
 }
