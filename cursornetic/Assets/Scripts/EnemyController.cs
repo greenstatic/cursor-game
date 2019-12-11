@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour {
 
     public Transform enemyPos;
     public int health = 100;
+    private Animator animator;
 
     // Field of view
     public bool enableFOV = true;
@@ -29,6 +30,7 @@ public class EnemyController : MonoBehaviour {
 
     public void Start() {
         player = GameObject.FindWithTag("Player");
+        animator = GetComponentInChildren<Animator>();
         PathfindingToPlayer(true);
     }
 
@@ -40,7 +42,8 @@ public class EnemyController : MonoBehaviour {
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
 
         if (enableElude) {
-            Elude(player, distToPlayer);
+            // We really don't like elude :)
+            //Elude(player, distToPlayer);
         }
     }
 
@@ -53,9 +56,16 @@ public class EnemyController : MonoBehaviour {
 
     public void Die() {
         //Instantiate(dieParticle, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<AIPath>().enabled = false;
+        StartCoroutine(waitForAnimation());
     }
 
+    IEnumerator waitForAnimation() {
+        animator.SetTrigger("Die");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(gameObject);
+    }
 
     public void TakeDamage(int damage) {
         health -= damage;
