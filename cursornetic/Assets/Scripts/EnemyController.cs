@@ -10,12 +10,16 @@ public class EnemyController : MonoBehaviour {
     public Transform enemyPos;
     public int health = 100;
     private Animator animator;
+    private GameObject player;
 
     // Field of view
     public bool enableFOV = true;
-    private GameObject player;
     public float FieldOfViewDistance = 5;
     private bool chasePlayer = false;
+
+    // Keep distance
+    public bool enableKeepDistance = true;
+    public float KeepDistance = 5;
 
     // Elude
     public bool enableElude = true;
@@ -68,7 +72,11 @@ public class EnemyController : MonoBehaviour {
 
     public void Die() {
         //Instantiate(dieParticle, transform.position, Quaternion.identity);
-        GetComponent<CapsuleCollider2D>().enabled = false;
+        if (this.GetEnemyType() == EnemyType.Minion)
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        else if (this.GetEnemyType() == EnemyType.Brainy)
+            GetComponent<PolygonCollider2D>().enabled = false;
+
         GetComponent<AIPath>().enabled = false;
         StartCoroutine(waitForAnimation());
     }
@@ -166,10 +174,30 @@ public class EnemyController : MonoBehaviour {
 
     private void KeepDistancePathFindingUpdate() {
         // TODO
+        if (enableKeepDistance) {
+            PathfindingToPlayer(!KeepDistanceTooClose());
+        }
     }
 
     private void KeepDistancePathFindingInit() {
         // TODO
+        if (enableKeepDistance) {
+            chasePlayer = true;
+            PathfindingToPlayer(false);
+        }
+    }
+
+    private bool KeepDistanceTooClose() {
+        if (!player) {
+            Debug.LogError("No Player set in EnemyController");
+            return false;
+        }
+
+        Vector2 playerPos = player.transform.position;
+        Vector2 enemyPos = this.transform.position;
+        float distance = Vector2.Distance(enemyPos, playerPos);
+
+        return KeepDistance >= distance;
     }
 
     private void FOVDistancePathFindingUpdate() {
@@ -178,6 +206,8 @@ public class EnemyController : MonoBehaviour {
         }
     }
     private void FOVDistancePathFindingInit() {
-        PathfindingToPlayer(true);
+        if (enableFOV) {
+            PathfindingToPlayer(true);
+        }
     }
 }
