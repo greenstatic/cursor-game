@@ -191,8 +191,6 @@ MonoBehaviour:
   startDashTime: 0.1
   isDashing: 0
   startRechargeTime: 1
-  dashEffect: {fileID: 1933872143644759828, guid: 22f184547db52514486d6bc2e3c645aa,
-    type: 3}
 --- !u!114 &1199497173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,3 +206,7 @@ MonoBehaviour:
   firePoint: {fileID: 860068856}
   bulletPrefab: {fileID: 6048760138968359587, guid: 68c8485713e58ee4cb55e545953e13a4,
     type: 3}
+  bulletRefillTimeDelta: 3
+  bulletUI1: {fileID: 0}
+  bulletUI2: {fileID: 0}
+  bulletUI3: {fileID: 0}

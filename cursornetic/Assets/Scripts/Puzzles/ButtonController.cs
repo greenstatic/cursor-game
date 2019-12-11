@@ -34,6 +34,7 @@ public class ButtonController : MonoBehaviour
         for (int i = 0; i < walls.Length; i++) {
             ElectricWallController wallScript = walls[i].GetComponent<ElectricWallController>();
             wallScript.Toggle();
+            FindObjectOfType<AudioManager>().Play("Switch");
         }
     }
 }

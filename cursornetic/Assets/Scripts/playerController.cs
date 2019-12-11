@@ -85,6 +85,7 @@ public class playerController : MonoBehaviour {
 
         // Play Dash Effect
         Instantiate(dashEffect, transform.position, Quaternion.identity);
+        FindObjectOfType<AudioManager>().Play("Dash");
 
         while (isDashing) {
 
@@ -117,7 +118,7 @@ public class playerController : MonoBehaviour {
                     enemy.Die();
                 }
                 else {
-                    TakeDamge(10f);
+                    TakeDamage(10f);
                 }
             }
         }
@@ -137,8 +138,8 @@ public class playerController : MonoBehaviour {
         }
     }
 
-    public void TakeDamge(float damge) {
-        GlobalState.health -= damge;
+    public void TakeDamage(float damage) {
+        GlobalState.health -= damage;
         healthBar.GetComponent<HealthBar>().SetSize(GlobalState.health / 100);
         if (GlobalState.health <= 0)
             GameOver();

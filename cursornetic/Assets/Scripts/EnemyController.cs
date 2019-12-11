@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour {
 
     public void Update() {
         PathfindingToPlayer(CanSeePlayer());
-        
+
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
 
         //Elude(player, distToPlayer);
@@ -47,6 +47,8 @@ public class EnemyController : MonoBehaviour {
 
     public void Die() {
         //Instantiate(dieParticle, transform.position, Quaternion.identity);
+        FindObjectOfType<AudioManager>().Stop("Virus");
+        FindObjectOfType<AudioManager>().Play("EnemyDying");
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<AIPath>().enabled = false;
         StartCoroutine(waitForAnimation());
@@ -109,6 +111,9 @@ public class EnemyController : MonoBehaviour {
         Vector2 playerPos = player.transform.position;
         Vector2 enemyPos = this.transform.position;
         float distance = Vector2.Distance(enemyPos, playerPos);
+
+        if (!(FieldOfViewDistance >= distance))
+            FindObjectOfType<AudioManager>().Play("Virus");
 
         return FieldOfViewDistance >= distance;
     }
