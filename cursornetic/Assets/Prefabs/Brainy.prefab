@@ -283,6 +283,8 @@ MonoBehaviour:
   health: 300
   enableFOV: 0
   FieldOfViewDistance: 5
+  enableKeepDistance: 1
+  KeepDistance: 5
   enableElude: 0
   eludeSpeed: 2
   eludeDist: 3
