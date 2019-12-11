@@ -144,6 +144,7 @@ public class playerController : MonoBehaviour {
         if (GlobalState.health <= 0)
             GameOver();
         animator.SetTrigger("TakingDamge");
+        FindObjectOfType<AudioManager>().Play("Damage");
         transform.position -= (Vector3) direction*2;
 
     }
