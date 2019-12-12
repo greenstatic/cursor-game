@@ -6,10 +6,8 @@ using UnityEngine;
 
 public class PauseMenuActivate : MonoBehaviour
 {
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             PauseMenu.Pause(this);
         }
     }

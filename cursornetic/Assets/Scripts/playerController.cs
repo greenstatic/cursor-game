@@ -123,6 +123,10 @@ public class playerController : MonoBehaviour {
             }
         }
 
+        if (col.CompareTag("Orb")) {
+            TakeDamage(20f);
+        }
+
         if (col.CompareTag("ButtonWall")) {
             ButtonController button = col.GetComponent<ButtonController>();
             if (isDashing) {
@@ -150,8 +154,15 @@ public class playerController : MonoBehaviour {
     }
 
     public void GameOver() {
-        Destroy(gameObject);
-        // play some game over animation
+        //Destroy(gameObject);
+        // TODO - play some game over animation
+        GlobalState.health = 100;
+
+        if (SceneManager.GetActiveScene().buildIndex == 1) {
+            // Spawn in the middle of the CPU level (level1) if we die in the cpu
+            GlobalState.spawnInMiddleCpu = true;
+        }
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

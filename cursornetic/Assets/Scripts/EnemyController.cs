@@ -21,6 +21,12 @@ public class EnemyController : MonoBehaviour {
     public bool enableKeepDistance = true;
     public float KeepDistance = 5;
 
+    // Periodic Orb Shooting
+    public GameObject orbPrefab;
+    public bool PeriodicOrbShootEnable = true;
+    public float periodicOrbShootingDelta = 5;
+    private float lastPerioidOrbShoot;
+
     // Elude
     public bool enableElude = true;
     public float eludeSpeed = 2;
@@ -54,6 +60,8 @@ public class EnemyController : MonoBehaviour {
 
         if (this.GetEnemyType() == EnemyType.Brainy) {
             KeepDistancePathFindingUpdate();
+            if (PeriodicOrbShootEnable)
+                PeriodicOrbShoot(transform.Find("FirePoint"));
         }
 
         distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
@@ -86,7 +94,7 @@ public class EnemyController : MonoBehaviour {
         }
 
         else if (this.GetEnemyType() == EnemyType.Brainy) {
-            GetComponent<PolygonCollider2D>().enabled = false;
+            GetComponent<CircleCollider2D>().enabled = false;
             Destroy(gameObject);
         }
     }
@@ -187,7 +195,8 @@ public class EnemyController : MonoBehaviour {
 
     private void KeepDistancePathFindingUpdate() {
         if (enableKeepDistance) {
-            PathfindingToPlayer(!KeepDistanceTooClose());
+            bool isTooClose = KeepDistanceTooClose();
+            PathfindingToPlayer(!isTooClose && CanSeePlayer());
         }
     }
 
@@ -220,5 +229,25 @@ public class EnemyController : MonoBehaviour {
         if (enableFOV) {
             PathfindingToPlayer(true);
         }
+    }
+
+    public void PeriodicOrbShoot(Transform firePoint) {
+        Debug.Assert(firePoint);
+
+        if (lastPerioidOrbShoot + periodicOrbShootingDelta < Time.time && CanSeePlayer()) {
+            lastPerioidOrbShoot = Time.time;
+
+            GameObject orb = Instantiate(orbPrefab, firePoint.position, firePoint.rotation);
+            Orb orbScript = orb.GetComponent<Orb>();
+            orbScript.MoveDirection(GetPlayerVector(firePoint));
+        }
+    }
+
+
+    private Vector2 GetPlayerVector(Transform origin) {
+        Vector2 playerPos = player.transform.position;
+        Vector2 enemyPos = origin.transform.position;
+
+        return playerPos - enemyPos;
     }
 }
