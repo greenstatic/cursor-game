@@ -191,6 +191,9 @@ MonoBehaviour:
   startDashTime: 0.1
   isDashing: 0
   startRechargeTime: 1
+  dashEffect: {fileID: 0}
+  timeScale: 0.5
+  slowingTimeDuration: 5
 --- !u!114 &1199497173
 MonoBehaviour:
   m_ObjectHideFlags: 0

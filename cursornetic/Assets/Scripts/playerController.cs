@@ -27,7 +27,12 @@ public class playerController : MonoBehaviour {
     public float startRechargeTime;
     private float rechargeTime;
     public GameObject dashEffect;
-    //public Animator camAnim;
+
+    // Slow Time variables
+    public float timeScale;
+    public float slowingTimeDuration;
+    private float slowSpeed;
+    private float initialSpeed;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +42,10 @@ public class playerController : MonoBehaviour {
 
         // Initialize the health bar - if we change scenes the health is not necessarly 100%.
         healthBar.GetComponent<HealthBar>().SetSize(GlobalState.health / 100);
+
+        // Setting Slow Time parameters before Update() to avoid wired behaviours
+        initialSpeed = speed;
+        slowSpeed = initialSpeed / timeScale;
     }
 
     void Update() {
@@ -68,11 +77,10 @@ public class playerController : MonoBehaviour {
             }
         }
 
-        /* // Roll
-        if (Input.GetButton("Roll")) {
-            Roll();
+        // Slow Time
+        if (Input.GetButton("SlowTime")) {
+            StartCoroutine(SlowTime(timeScale, slowingTimeDuration, slowSpeed, initialSpeed));
         }
-        */
 
         rechargeTime -= Time.fixedDeltaTime;
     }
@@ -101,11 +109,14 @@ public class playerController : MonoBehaviour {
         }
     }
 
-    /*
-    public void Roll() {
-        
+    IEnumerator SlowTime(float timeScale, float duration, float slowSpeed, float initialSpeed) {
+        Time.timeScale = timeScale;
+        duration *= timeScale;
+        speed = slowSpeed;
+        yield return new WaitForSeconds(duration);
+        speed = initialSpeed;
+        Time.timeScale = 1f;
     }
-    */
 
 
     public void OnTriggerEnter2D(Collider2D col) {

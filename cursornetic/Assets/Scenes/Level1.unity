@@ -1268,6 +1268,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2261770920640611778, guid: 6fb8295161fc39440bfe8bc250178548,
         type: 3}
+    - target: {fileID: 5025016620374312301, guid: 2c824c598ebc36747980e60fbb3ab4da,
+        type: 3}
+      propertyPath: timeScale
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312337, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_Offset.x
@@ -1985,7 +1990,7 @@ PrefabInstance:
     - target: {fileID: 7436130770959568843, guid: 40fedb0539b6bef41a9cf29092f52038,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7436130770959568843, guid: 40fedb0539b6bef41a9cf29092f52038,
         type: 3}
