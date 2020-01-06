@@ -145,10 +145,10 @@ public class playerController : MonoBehaviour {
             }
         }
 
-        if (col.CompareTag("ButtonWall")) {
-            ButtonController button = col.GetComponent<ButtonController>();
+        if (col.CompareTag("ButtonDoor")) {
+            DoorController button = col.GetComponent<DoorController>();
             if (isDashing) {
-                //sblocca porte
+                button.TurnOn();
             }
         }
     }
