@@ -6891,7 +6891,7 @@ GameObject:
   - component: {fileID: 1771672006}
   - component: {fileID: 1771672005}
   m_Layer: 0
-  m_Name: Room2
+  m_Name: Room2-PUZZLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
