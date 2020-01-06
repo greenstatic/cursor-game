@@ -21,6 +21,8 @@ TagManager:
   - DialogTrigger
   - Ditch
   - Orb
+  - Wire
+  - ButtonWire
   layers:
   - Default
   - TransparentFX

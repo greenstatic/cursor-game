@@ -110,10 +110,12 @@ public class playerController : MonoBehaviour {
     }
 
     IEnumerator SlowTime(float timeScale, float duration, float slowSpeed, float initialSpeed) {
+        FindObjectOfType<AudioManager>().Play("SlowTimeIn");
         Time.timeScale = timeScale;
         duration *= timeScale;
         speed = slowSpeed;
         yield return new WaitForSeconds(duration);
+        FindObjectOfType<AudioManager>().Play("SlowTimeOut");
         speed = initialSpeed;
         Time.timeScale = 1f;
     }
@@ -147,6 +149,13 @@ public class playerController : MonoBehaviour {
 
         if (col.CompareTag("ButtonDoor")) {
             DoorController button = col.GetComponent<DoorController>();
+            if (isDashing) {
+                button.TurnOn();
+            }
+        }
+
+        if (col.CompareTag("ButtonWire")) {
+            WireController button = col.GetComponent<WireController>();
             if (isDashing) {
                 button.TurnOn();
             }

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour {
 
-    public SpriteRenderer spriteButton;
+    private SpriteRenderer spriteButton;
     public Sprite spriteOn;
 
     public void Start() {
-        spriteButton.sprite = spriteButton.sprite;
+        spriteButton = GetComponent<SpriteRenderer>();
     }
 
     public void TurnOn() {
         GetComponent<Animator>().SetTrigger("TurnOn");
         spriteButton.sprite = spriteOn;
+        FindObjectOfType<AudioManager>().Play("Switch");
     }
 }
