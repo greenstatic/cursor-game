@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WireController : MonoBehaviour {
 
-    private bool state = false; //T=on, F=off
+    public bool state = false; //T=on, F=off
     private SpriteRenderer spriteButton;
     public Sprite spriteOn, spriteOff;
     public GameObject wire;
