@@ -14,13 +14,13 @@ public class WirePuzzleController : MonoBehaviour {
         }
     }
 
+    /*WIP
     public void Update() {
         if (AllWiresOn(0)) {
             return;
         }
     }
-
-    //WIP
+    
     public bool AllWiresOn(int index) {
         if (wires[index].state == true) {
             if (index < wires.Length)
@@ -29,4 +29,5 @@ public class WirePuzzleController : MonoBehaviour {
                 return AllWiresOn(index++);
         }
     }
+    */
 }
