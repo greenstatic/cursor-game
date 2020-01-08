@@ -4,30 +4,48 @@ using UnityEngine;
 
 public class WirePuzzleController : MonoBehaviour {
 
-    private WireController[] wires;
-    public int count = 0;
+    public GameObject[] wires;
+    public float puzzleTime;
+    private int buttonsOn;
+    private IEnumerator coroutine;
+    public GameObject door;
 
-    public void Start() {
-        GameObject[] button = GameObject.FindGameObjectsWithTag("ButtonWire");
-        for (int i=0; i<button.Length; i++) {
-            wires[i] = button[i].GetComponent<WireController>();
-        }
-    }
+    //public GameObject timeBar;
 
-    /*WIP
     public void Update() {
-        if (AllWiresOn(0)) {
-            return;
+        if (buttonsOn == wires.Length)
+            door.SetActive(false);
+    }
+
+    public void ButtonPress(GameObject button) {
+        buttonsOn++;
+        if (IsRightButton(button)) {
+            if (puzzleTime != 0)
+                if (button == wires[0]) {
+                    coroutine = Timer();
+                    StartCoroutine(coroutine);
+                }
+        } else {
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+            buttonsOn = 0;
+            foreach (GameObject w in wires)
+                w.GetComponent<WireController>().TurnOff();
         }
     }
-    
-    public bool AllWiresOn(int index) {
-        if (wires[index].state == true) {
-            if (index < wires.Length)
-                return wires[index].state;
-            else
-                return AllWiresOn(index++);
+
+    public bool IsRightButton(GameObject newButton) {
+        if (wires[buttonsOn - 1] == newButton)
+            return true;
+        else
+            return false;
+    }
+
+    IEnumerator Timer() {
+        yield return new WaitForSeconds(puzzleTime);
+        buttonsOn = 0;
+        foreach (GameObject w in wires) {
+            w.GetComponent<WireController>().TurnOff();
         }
     }
-    */
 }

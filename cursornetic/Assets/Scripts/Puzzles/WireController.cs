@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class WireController : MonoBehaviour {
 
     public bool state = false; //T=on, F=off
@@ -9,7 +10,6 @@ public class WireController : MonoBehaviour {
     public Sprite spriteOn, spriteOff;
     public GameObject wire;
     public Sprite lightOn, lightOff;
-    public float timeOn;
 
     public void Start() {
         spriteButton = GetComponent<SpriteRenderer>();
@@ -17,26 +17,26 @@ public class WireController : MonoBehaviour {
 
     public void TurnOn() {
         state = true;
+
+        FindObjectOfType<AudioManager>().Play("Switch");
         GetComponent<Animator>().SetTrigger("TurnOn");
         spriteButton.sprite = spriteOn;
-        FindObjectOfType<AudioManager>().Play("Switch");
 
-        wire.GetComponent<SpriteRenderer>().sprite = lightOn;
+        if (wire != null)
+            wire.GetComponent<SpriteRenderer>().sprite = lightOn;
 
-        StartCoroutine(Timer());
+        // Add the button to the sequence
+        FindObjectOfType<WirePuzzleController>().ButtonPress(gameObject);
     }
 
     public void TurnOff() {
         state = false;
+
         FindObjectOfType<AudioManager>().Play("Switch");
         GetComponent<Animator>().SetTrigger("TurnOff");
         spriteButton.sprite = spriteOff;
 
-        wire.GetComponent<SpriteRenderer>().sprite = lightOff;
-    }
-    
-    IEnumerator Timer() {
-        yield return new  WaitForSeconds(timeOn);
-        TurnOff();
+        if (wire != null)
+            wire.GetComponent<SpriteRenderer>().sprite = lightOff;
     }
 }

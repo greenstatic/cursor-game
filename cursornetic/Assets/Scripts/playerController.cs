@@ -157,7 +157,8 @@ public class playerController : MonoBehaviour {
         if (col.CompareTag("ButtonWire")) {
             WireController button = col.GetComponent<WireController>();
             if (isDashing) {
-                button.TurnOn();
+                if (button.state == false)
+                    button.TurnOn();
             }
         }
     }
