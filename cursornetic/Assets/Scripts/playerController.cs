@@ -67,19 +67,20 @@ public class playerController : MonoBehaviour {
             angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
             rb.rotation = angle;
         }
-
-        // Dash
-        if (Input.GetButton("Dash")) {
-            if (rechargeTime <= 0) {
-                isDashing = true;
-                StartCoroutine(Dash());
-                rechargeTime = startRechargeTime;
+        if (Time.timeScale > 0) {
+            // Dash
+            if (Input.GetButton("Dash")) {
+                if (rechargeTime <= 0) {
+                    isDashing = true;
+                    StartCoroutine(Dash());
+                    rechargeTime = startRechargeTime;
+                }
             }
-        }
 
-        // Slow Time
-        if (Input.GetButton("SlowTime")) {
-            StartCoroutine(SlowTime(timeScale, slowingTimeDuration, slowSpeed, initialSpeed));
+            // Slow Time
+            if (Input.GetButton("SlowTime")) {
+                StartCoroutine(SlowTime(timeScale, slowingTimeDuration, slowSpeed, initialSpeed));
+            }
         }
 
         rechargeTime -= Time.fixedDeltaTime;

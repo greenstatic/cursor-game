@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour {
     public static int PauseMenuSceneBuildIndex;
     public static PauseMenuActivate pauseMenuActiveScript;
 
+    private static float previousTimeScale = 0f;
+
     public void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Resume();
@@ -23,10 +25,11 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public static void Resume() {
-        Debug.Log("Resuming game");
         mouseCursor.Disable();
         GameIsPaused = false;
-        Time.timeScale = 1f;
+        
+        Time.timeScale = previousTimeScale;
+
         pauseMenuActiveScript.enabled = true;
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByBuildIndex(PauseMenuSceneBuildIndex));
     }
@@ -36,7 +39,8 @@ public class PauseMenu : MonoBehaviour {
         mouseCursor.Enable();
         pauseMenuActiveScript = p;
         pauseMenuActiveScript.enabled = false;
-        Debug.Log("Pausing game");
+
+        previousTimeScale = Time.timeScale;
         Time.timeScale = 0f;
         GameIsPaused = true;
         SceneManager.LoadSceneAsync(PauseMenuSceneBuildIndex, LoadSceneMode.Additive);
