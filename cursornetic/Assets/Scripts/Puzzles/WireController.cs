@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class WireController : MonoBehaviour {
 
+    [HideInInspector]
     public bool state = false; //T=on, F=off
+
     private SpriteRenderer spriteButton;
     public Sprite spriteOn, spriteOff;
     public GameObject wire;
@@ -26,7 +28,7 @@ public class WireController : MonoBehaviour {
             wire.GetComponent<SpriteRenderer>().sprite = lightOn;
 
         // Add the button to the sequence
-        FindObjectOfType<WirePuzzleController>().ButtonPress(gameObject);
+        transform.parent.GetComponent<WirePuzzleController>().ButtonPress(gameObject);
     }
 
     public void TurnOff() {

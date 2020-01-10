@@ -31,8 +31,6 @@ public class playerController : MonoBehaviour {
     // Slow Time variables
     public float timeScale;
     public float slowingTimeDuration;
-    private float slowSpeed;
-    private float initialSpeed;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -42,10 +40,6 @@ public class playerController : MonoBehaviour {
 
         // Initialize the health bar - if we change scenes the health is not necessarly 100%.
         healthBar.GetComponent<HealthBar>().SetSize(GlobalState.health / 100);
-
-        // Setting Slow Time parameters before Update() to avoid wired behaviours
-        initialSpeed = speed;
-        slowSpeed = initialSpeed / timeScale;
     }
 
     void Update() {
@@ -58,7 +52,7 @@ public class playerController : MonoBehaviour {
         direction = new Vector2(transform.right.x, transform.right.y);
 
         // Translation
-        rb.velocity = moveInput * speed * Time.deltaTime;
+        rb.velocity = moveInput * speed * Time.fixedUnscaledDeltaTime;
 
         animator.SetFloat("PlayerVelocity", rb.velocity.sqrMagnitude);
 
@@ -79,10 +73,10 @@ public class playerController : MonoBehaviour {
 
         // Slow Time
         if (Input.GetButton("SlowTime")) {
-            StartCoroutine(SlowTime(timeScale, slowingTimeDuration, slowSpeed, initialSpeed));
+            StartCoroutine(SlowTime(timeScale, slowingTimeDuration));
         }
 
-        rechargeTime -= Time.fixedDeltaTime;
+        rechargeTime -= Time.fixedUnscaledDeltaTime;
     }
 
     IEnumerator Dash() {
@@ -102,21 +96,19 @@ public class playerController : MonoBehaviour {
                 isDashing = false;
                 dashTime = startDashTime;
             } else {
-                dashTime -= Time.deltaTime;
+                dashTime -= Time.unscaledDeltaTime;
                 camera.GetComponent<cameraController>().ShakeCamera();
                 rb.AddForce(direction * dashSpeed);
             }
         }
     }
 
-    IEnumerator SlowTime(float timeScale, float duration, float slowSpeed, float initialSpeed) {
+    IEnumerator SlowTime(float timeScale, float duration) {
         FindObjectOfType<AudioManager>().Play("SlowTimeIn");
         Time.timeScale = timeScale;
         duration *= timeScale;
-        speed = slowSpeed;
         yield return new WaitForSeconds(duration);
         FindObjectOfType<AudioManager>().Play("SlowTimeOut");
-        speed = initialSpeed;
         Time.timeScale = 1f;
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WirePuzzleController : MonoBehaviour {
 
     public GameObject[] wires;
-    public float puzzleTime;
+    public float puzzleTime; //if 0 there is no time limit
     private int buttonsOn;
     private IEnumerator coroutine;
     public GameObject door;
@@ -31,6 +31,7 @@ public class WirePuzzleController : MonoBehaviour {
             buttonsOn = 0;
             foreach (GameObject w in wires)
                 w.GetComponent<WireController>().TurnOff();
+            door.SetActive(true);
         }
     }
 
@@ -47,5 +48,6 @@ public class WirePuzzleController : MonoBehaviour {
         foreach (GameObject w in wires) {
             w.GetComponent<WireController>().TurnOff();
         }
+        door.SetActive(true);
     }
 }
