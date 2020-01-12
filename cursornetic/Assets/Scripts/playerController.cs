@@ -29,6 +29,8 @@ public class playerController : MonoBehaviour {
     public GameObject dashEffect;
 
     // Slow Time variables
+    public GameObject timeBar;
+    private float remainingTime;
     public float timeScale;
     public float slowingTimeDuration;
     private bool slowTimeActive;
@@ -76,8 +78,14 @@ public class playerController : MonoBehaviour {
         }
 
         // Slow Time
-        if (Input.GetButton("SlowTime")) {
-            StartCoroutine(SlowTime(timeScale, slowingTimeDuration));
+        if (!slowTimeActive) {
+            if (Input.GetButton("SlowTime")) {
+                StartCoroutine(SlowTime(timeScale, slowingTimeDuration));
+            }
+        } else {
+            timeBar.GetComponentInChildren<TimeBar>().SetSize(remainingTime / slowingTimeDuration);
+            remainingTime -= Time.fixedUnscaledDeltaTime;
+            Debug.Log(remainingTime);
         }
 
         rechargeTime -= Time.fixedUnscaledDeltaTime;
@@ -109,12 +117,19 @@ public class playerController : MonoBehaviour {
 
     IEnumerator SlowTime(float timeScale, float duration) {
         slowTimeActive = true;
+        timeBar.SetActive(true);
+
+        remainingTime = slowingTimeDuration;
+
         FindObjectOfType<AudioManager>().Play("SlowTimeIn");
         Time.timeScale = timeScale;
         duration *= timeScale;
         yield return new WaitForSeconds(duration);
+
         FindObjectOfType<AudioManager>().Play("SlowTimeOut");
         Time.timeScale = 1f;
+
+        timeBar.SetActive(false);
         slowTimeActive = false;
     }
 
