@@ -31,6 +31,7 @@ public class playerController : MonoBehaviour {
     // Slow Time variables
     public float timeScale;
     public float slowingTimeDuration;
+    private bool slowTimeActive;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -67,7 +68,10 @@ public class playerController : MonoBehaviour {
             if (rechargeTime <= 0) {
                 isDashing = true;
                 StartCoroutine(Dash());
-                rechargeTime = startRechargeTime;
+                if (slowTimeActive)
+                    rechargeTime = startRechargeTime / 2;
+                else
+                    rechargeTime = startRechargeTime;
             }
         }
 
@@ -104,12 +108,14 @@ public class playerController : MonoBehaviour {
     }
 
     IEnumerator SlowTime(float timeScale, float duration) {
+        slowTimeActive = true;
         FindObjectOfType<AudioManager>().Play("SlowTimeIn");
         Time.timeScale = timeScale;
         duration *= timeScale;
         yield return new WaitForSeconds(duration);
         FindObjectOfType<AudioManager>().Play("SlowTimeOut");
         Time.timeScale = 1f;
+        slowTimeActive = false;
     }
 
 
