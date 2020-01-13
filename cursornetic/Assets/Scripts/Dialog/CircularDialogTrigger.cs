@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CircularDialogTrigger : MonoBehaviour {
 
+    // TODO - DELETE CLASS!
     public void OnTriggerEnter2D(Collider2D col) {
         if (this.name == "DialogTriggerGear") {
             DialogGear(col);

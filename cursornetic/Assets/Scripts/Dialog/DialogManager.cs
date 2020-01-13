@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,16 +13,21 @@ public class DialogManager : MonoBehaviour {
     public Animator animator;
 
     private Queue<string> sentences;
+    private Queue<MonoScript> scripts;
     private float previousTimeScale = 0f;
     private bool inDialog = false;
 
+    private float previousGetButtonSubmit = 0;
+
     void Start() {
         sentences = new Queue<string>();
+        scripts = new Queue<MonoScript>();
     }
 
     void Update() {
-        if (inDialog && Input.GetButton("Submit")) {
+        if (inDialog && Input.GetButton("Submit") && (Time.realtimeSinceStartup - previousGetButtonSubmit) > 1.0f) {
             DisplayNextSentence();
+            previousGetButtonSubmit = Time.realtimeSinceStartup;
         }
     }
 
@@ -40,6 +47,10 @@ public class DialogManager : MonoBehaviour {
 
         foreach (string sentence in Dialog.sentences) {
             sentences.Enqueue(sentence);
+        }
+
+        if (Dialog.Script) {
+            scripts.Enqueue(Dialog.Script);
         }
 
         DisplayNextSentence();
@@ -65,6 +76,15 @@ public class DialogManager : MonoBehaviour {
     }
 
     void EndDialog() {
+
+        if (scripts.Count != 0) {
+            for (int i = 0; i < scripts.Count; i++) {
+                MonoScript script = scripts.Dequeue();
+                MethodInfo scriptRunMethod = script.GetClass().GetMethod("Run");
+                scriptRunMethod.Invoke(script.GetClass(), null);
+            }
+        }
+
         inDialog = false;
         animator.SetBool("IsOpen", false);
         Time.timeScale = previousTimeScale;

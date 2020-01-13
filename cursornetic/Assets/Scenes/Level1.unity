@@ -1035,6 +1035,8 @@ MonoBehaviour:
     name: Help icon
     sentences:
     - The computer has been inflitrated by nasty viruses.
+    - You must defeat the viruses. Here is a weapon with which you might stand a chance!
+    Script: {fileID: 11500000, guid: 0a73142ee6a9036468055504bfed1db7, type: 3}
 --- !u!1 &1147754845
 GameObject:
   m_ObjectHideFlags: 0
