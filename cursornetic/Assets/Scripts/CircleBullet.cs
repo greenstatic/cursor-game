@@ -42,10 +42,12 @@ public class CircleBullet : MonoBehaviour
             ButtonController button = hit.GetComponent<ButtonController>();
             button.Toggle();
         }
-
-        // TODO - doors
-        if (hit.CompareTag("ButtonWall")) {
-            ButtonController button = hit.GetComponent<ButtonController>();
+        
+        if (hit.CompareTag("ButtonWire")) {
+            WireController button = hit.GetComponent<WireController>();
+            if (button.transform.name == "Button Unlock Puzzle1") {
+                button.TurnOn();
+            }
         }
 
         if (hit.CompareTag("DialogTrigger")) {
