@@ -35,6 +35,11 @@ public class playerController : MonoBehaviour {
     public float slowingTimeDuration;
     private bool slowTimeActive;
 
+    // Dialog toggle speed
+    //private float oldSpeed = 0.0f;
+    //private Vector3 oldMoveInput;
+    //private bool oldSpeedToggle = false;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         camera = GameObject.FindWithTag("MainCamera");
@@ -51,6 +56,24 @@ public class playerController : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        // TODO - solve bug where player keeps on moving
+        //if (GlobalState.isInDialog) {
+        //    return;
+        //}
+        //if (GlobalState.isInDialog) {
+        //    oldSpeed = speed;
+        //    speed = 0;
+        //    oldSpeedToggle = true;
+        //    oldMoveInput = moveInput;
+        //    moveInput = Vector3.zero;
+        //    return;
+        //}
+
+        //if (oldSpeedToggle) {
+        //    speed = oldSpeed;
+        //    moveInput = oldMoveInput;
+        //    oldSpeedToggle = false;
+        //}
 
         direction = new Vector2(transform.right.x, transform.right.y);
 
@@ -75,20 +98,21 @@ public class playerController : MonoBehaviour {
                 else
                     rechargeTime = startRechargeTime;
             }
-        }
 
-        // Slow Time
-        if (!slowTimeActive) {
-            if (Input.GetButton("SlowTime")) {
-                StartCoroutine(SlowTime(timeScale, slowingTimeDuration));
+            // Slow Time
+            if (!slowTimeActive) {
+                if (Input.GetButton("SlowTime")) {
+                    StartCoroutine(SlowTime(timeScale, slowingTimeDuration));
+                }
             }
-        } else {
-            timeBar.GetComponentInChildren<TimeBar>().SetSize(remainingTime / slowingTimeDuration);
-            remainingTime -= Time.fixedUnscaledDeltaTime;
-            Debug.Log(remainingTime);
-        }
+            else {
+                timeBar.GetComponentInChildren<TimeBar>().SetSize(remainingTime / slowingTimeDuration);
+                remainingTime -= Time.fixedUnscaledDeltaTime;
+                Debug.Log(remainingTime);
+            }
 
-        rechargeTime -= Time.fixedUnscaledDeltaTime;
+            rechargeTime -= Time.fixedUnscaledDeltaTime;
+        }
     }
 
     IEnumerator Dash() {
@@ -140,7 +164,7 @@ public class playerController : MonoBehaviour {
 
             if (enemy != null) {
                 if (isDashing) {
-                    Debug.Log("Enemy has died.");
+                    //Debug.Log("Enemy has died.");
                     enemy.Die();
                 }
                 else {
