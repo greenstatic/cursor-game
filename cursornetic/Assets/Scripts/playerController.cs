@@ -164,8 +164,7 @@ public class playerController : MonoBehaviour {
 
             if (enemy != null) {
                 if (isDashing) {
-                    //Debug.Log("Enemy has died.");
-                    enemy.Die();
+                    enemy.TakeDamage(100);
                 }
                 else {
                     TakeDamage(10f);

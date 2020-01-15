@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public enum EnemyType { Unknown, Minion, Brainy };
+public enum EnemyType { Unknown, Minion, Brainy, Worm };
 
 public class EnemyController : MonoBehaviour {
-
-    public Transform enemyPos;
+    
     public int health = 100;
     private Animator animator;
     private GameObject player;
+
+    private float distToPlayer;
+
 
     // Field of view
     public bool enableFOV = true;
@@ -26,14 +28,6 @@ public class EnemyController : MonoBehaviour {
     public bool PeriodicOrbShootEnable = true;
     public float periodicOrbShootingDelta = 5;
     private float lastPerioidOrbShoot;
-
-    // Elude
-    public bool enableElude = true;
-    public float eludeSpeed = 2;
-    public float eludeDist = 3;
-    public float startEludeTime;
-    private float eludeTime;
-    private float distToPlayer;
 
     // Death
     public ParticleSystem deathParticle;
@@ -64,12 +58,8 @@ public class EnemyController : MonoBehaviour {
                 PeriodicOrbShoot(transform.Find("FirePoint"));
         }
 
-        distToPlayer = Vector3.Distance(enemyPos.transform.position, player.transform.position);
-
-        if (enableElude) {
-            // We really don't like elude :)
-            //Elude(player, distToPlayer);
-        }
+        distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        
     }
 
     //private void OnTriggerEnter2D(Collider2D col) {
@@ -110,40 +100,6 @@ public class EnemyController : MonoBehaviour {
 
         if (health <= 0) {
             Die();
-        }
-    }
-
-    void Elude(GameObject player, float distance) {
-
-        playerController pc = player.GetComponent<playerController>();
-        bool playerIsDashing = pc.isDashing;
-
-        if (distance <= eludeDist && playerIsDashing) {
-
-            eludeTime = startEludeTime;
-            float r = Random.Range(0f, 1f);
-
-            Vector2 direction = Vector2.zero;
-
-            if (r >= 0 && r < 0.25f)
-                direction = new Vector2(1, 1);
-            else if (r >= 0.25f && r < 0.5f)
-                direction = new Vector2(1, -1);
-            else if (r >= 0.5f && r < 0.75f)
-                direction = new Vector2(-1, 1);
-            else if (r >= 0.75f && r < 1f)
-                direction = new Vector2(-1, -1);
-
-            AIPath script = this.GetComponent<AIPath>();
-            script.enabled = false;
-
-            while (eludeTime >= 0) {
-                //player.GetComponentInChildren<Rigidbody2D>().AddForce(direction * eludeSpeed);
-                enemyPos.position = (Vector2) enemyPos.position + direction * new Vector2(0.1f, 0.1f);
-                eludeTime -= Time.deltaTime;
-            }
-
-            script.enabled = true;
         }
     }
 
