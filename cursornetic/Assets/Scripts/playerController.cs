@@ -35,10 +35,8 @@ public class playerController : MonoBehaviour {
     public float slowingTimeDuration;
     private bool slowTimeActive;
 
-    // Dialog toggle speed
-    //private float oldSpeed = 0.0f;
-    //private Vector3 oldMoveInput;
-    //private bool oldSpeedToggle = false;
+    // Dialog toggle
+    private int wasInDialog = 0;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -57,28 +55,24 @@ public class playerController : MonoBehaviour {
 
     void FixedUpdate() {
         // TODO - solve bug where player keeps on moving
-        //if (GlobalState.isInDialog) {
-        //    return;
-        //}
-        //if (GlobalState.isInDialog) {
-        //    oldSpeed = speed;
-        //    speed = 0;
-        //    oldSpeedToggle = true;
-        //    oldMoveInput = moveInput;
-        //    moveInput = Vector3.zero;
-        //    return;
-        //}
+        if (GlobalState.isInDialog) {
+            wasInDialog = 2;  // see bellow for explaination why 2.
+            return;
+        }
 
-        //if (oldSpeedToggle) {
-        //    speed = oldSpeed;
-        //    moveInput = oldMoveInput;
-        //    oldSpeedToggle = false;
-        //}
 
         direction = new Vector2(transform.right.x, transform.right.y);
 
         // Translation
-        rb.velocity = moveInput * speed * Time.fixedUnscaledDeltaTime;
+        if (wasInDialog > 0) {
+            // Solves the teleporation after dialog box closes bug.
+            // Must allow a single frame to render 'normally' before unscaledDeltaTime
+            // this is why we lauch this block of code twice (wasInDialog = 2).
+            wasInDialog--;
+            rb.velocity = moveInput * speed * Time.deltaTime;
+        } else {
+            rb.velocity = moveInput * speed * Time.fixedUnscaledDeltaTime;
+        }
 
         animator.SetFloat("PlayerVelocity", rb.velocity.sqrMagnitude);
 
@@ -106,7 +100,8 @@ public class playerController : MonoBehaviour {
                 if (Input.GetButton("SlowTime")) {
                     StartCoroutine(SlowTime(timeScale, slowingTimeDuration));
                 }
-            } else {
+            }
+            else {
                 timeBar.GetComponentInChildren<TimeBar>().SetSize(remainingTime / slowingTimeDuration);
                 remainingTime -= Time.fixedUnscaledDeltaTime;
             }
