@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3938201254989422355}
   - component: {fileID: 3938201254989422352}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DialogManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3938201254989422354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 126, z: -5171.8584}
-  m_LocalScale: {x: 69.23101, y: 69.23101, z: 69.23101}
+  m_LocalPosition: {x: 6.999967, y: 126, z: 0}
+  m_LocalScale: {x: 69.23101, y: 69.23101, z: 0}
   m_Children:
   - {fileID: 3938201255078165345}
   m_Father: {fileID: 4812697427780289676}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3938201254989422352
 MonoBehaviour:
@@ -623,8 +623,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4812697427051621089}
-  m_Layer: 0
-  m_Name: UI 1
+  m_Layer: 5
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812697427089076971}
   - component: {fileID: 4812697427089076968}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bullet1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,8 +711,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -79605257
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a576b52c104a3c44191e7ec1d4da5f52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -767,7 +767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4812697427279210914}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +789,7 @@ Transform:
   - {fileID: 4812697427799235976}
   - {fileID: 4812697427777868668}
   m_Father: {fileID: 4812697427780289676}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4812697427298099978
 GameObject:
@@ -960,7 +960,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812697427777868668}
   - component: {fileID: 4812697427777868669}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bullet3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,8 +1016,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -79605257
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a576b52c104a3c44191e7ec1d4da5f52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1062,8 +1062,8 @@ RectTransform:
   m_Children:
   - {fileID: 4812697428227722253}
   - {fileID: 4812697427230182367}
-  - {fileID: 4812697427279210914}
   - {fileID: 3938201254989422355}
+  - {fileID: 4812697427279210914}
   m_Father: {fileID: 4812697427051621089}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1142,7 +1142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812697427799235976}
   - component: {fileID: 4812697427799235977}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1198,8 +1198,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -79605257
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a576b52c104a3c44191e7ec1d4da5f52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
