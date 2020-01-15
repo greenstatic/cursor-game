@@ -9,8 +9,8 @@ public class GlobalState {
 
     public static float health = 100;
     public static int bullets = 0;
-    public static bool playerHasWeapon = true; //debug;
-    public static bool playerHasSlowTime = true; //debug;
+    public static bool playerHasWeapon = debug;
+    public static bool playerHasSlowTime = debug;
 
     public static List<string> triggeredDialogs = new List<string>();
     public static bool isInDialog = false;
