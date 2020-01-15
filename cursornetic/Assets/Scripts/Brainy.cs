@@ -6,6 +6,7 @@ public class Brainy : MonoBehaviour {
 
     public Sprite left;
     public Sprite right;
+    public Animator brainyAnimator;
 
     private float previousXCoord;
     private bool movementSpriteIsRight;
@@ -18,12 +19,15 @@ public class Brainy : MonoBehaviour {
             Debug.LogWarning("No right sprite for Brainy");
         }
 
+        brainyAnimator = GetComponentInChildren<Animator>();
+
         MovementSpriteSetInit();
     }
 
     void Update() {
         MovementSpriteUpdate();
     }
+
     private void MovementSpriteUpdate() {
         float currentXCoord = this.transform.position.x;
 
@@ -49,10 +53,10 @@ public class Brainy : MonoBehaviour {
         }
 
         if (movingRight) {
-            sr.sprite = right;
+            brainyAnimator.SetTrigger("TurnOnOtherSide");
             movementSpriteIsRight = true;
         } else {
-            sr.sprite = left;
+            brainyAnimator.SetTrigger("TurnOnOtherSide");
             movementSpriteIsRight = false;
         }
     }

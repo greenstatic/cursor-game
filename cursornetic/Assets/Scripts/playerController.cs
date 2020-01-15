@@ -98,21 +98,21 @@ public class playerController : MonoBehaviour {
                 else
                     rechargeTime = startRechargeTime;
             }
+        }
 
-            // Slow Time
+        // Slow Time
+        if (GlobalState.playerHasSlowTime) {
             if (!slowTimeActive) {
                 if (Input.GetButton("SlowTime")) {
                     StartCoroutine(SlowTime(timeScale, slowingTimeDuration));
                 }
-            }
-            else {
+            } else {
                 timeBar.GetComponentInChildren<TimeBar>().SetSize(remainingTime / slowingTimeDuration);
                 remainingTime -= Time.fixedUnscaledDeltaTime;
-                Debug.Log(remainingTime);
             }
-
-            rechargeTime -= Time.fixedUnscaledDeltaTime;
         }
+
+        rechargeTime -= Time.fixedUnscaledDeltaTime;
     }
 
     IEnumerator Dash() {
