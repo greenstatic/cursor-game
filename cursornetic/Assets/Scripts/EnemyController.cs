@@ -78,7 +78,9 @@ public class EnemyController : MonoBehaviour {
         FindObjectOfType<AudioManager>().Stop("Virus");
         FindObjectOfType<AudioManager>().Play("EnemyDying");
 
-        GetComponent<AIPath>().enabled = false;
+        if (GetComponent<AIPath>() != null) {
+            GetComponent<AIPath>().enabled = false;
+        }
 
 
         if (this.GetEnemyType() == EnemyType.Minion) {
@@ -87,6 +89,23 @@ public class EnemyController : MonoBehaviour {
         } else if (this.GetEnemyType() == EnemyType.Brainy) {
             GetComponent<CircleCollider2D>().enabled = false;
             Destroy(gameObject);
+        } else if (this.GetEnemyType() == EnemyType.Worm) {
+            GetComponent<SpriteRenderer>().enabled = false;
+
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(true);
+            animator = transform.GetChild(1).gameObject.GetComponent<Animator>();
+
+            StartCoroutine(waitForAnimation());
+            
+            if (this.name == "WormBoss") {
+
+                // Win dialog
+                dialog.GetComponent<DialogTrigger>().TriggerDialogue();
+
+                // Recharge life
+                GlobalState.health = 100;
+            }
         }
 
         if (this.name == "BrainyBoss") {
@@ -107,7 +126,7 @@ public class EnemyController : MonoBehaviour {
 
     IEnumerator waitForAnimation() {
         animator.SetTrigger("Die");
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length-0.1f);
         Destroy(gameObject);
     }
 
@@ -163,6 +182,10 @@ public class EnemyController : MonoBehaviour {
 
         if (this.name.ToLower().StartsWith("brainy")) {
             return EnemyType.Brainy;
+        }
+
+        if (this.name.ToLower().StartsWith("worm")) {
+            return EnemyType.Worm;
         }
 
         return EnemyType.Unknown;
