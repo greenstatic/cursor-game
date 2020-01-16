@@ -136,6 +136,7 @@ public class playerController : MonoBehaviour {
 
     IEnumerator SlowTime(float timeScale, float duration) {
         slowTimeActive = true;
+        animator.SetBool("IsSlowingTime", true);
         timeBar.SetActive(true);
 
         remainingTime = slowingTimeDuration;
@@ -149,6 +150,7 @@ public class playerController : MonoBehaviour {
         Time.timeScale = 1f;
 
         timeBar.SetActive(false);
+        animator.SetBool("IsSlowingTime", false);
         slowTimeActive = false;
     }
 
