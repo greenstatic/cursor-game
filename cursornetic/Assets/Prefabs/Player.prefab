@@ -187,11 +187,12 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   speed: 150
   angle: 0
-  dashSpeed: 1000
+  dashSpeed: 600
   startDashTime: 0.1
   isDashing: 0
   startRechargeTime: 1
   dashEffect: {fileID: 0}
+  timeBar: {fileID: 0}
   timeScale: 0.5
   slowingTimeDuration: 5
 --- !u!114 &1199497173
