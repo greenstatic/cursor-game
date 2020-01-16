@@ -14,4 +14,6 @@ public class GlobalState {
 
     public static List<string> triggeredDialogs = new List<string>();
     public static bool isInDialog = false;
+
+    public static bool brainyAlive = true;
 }

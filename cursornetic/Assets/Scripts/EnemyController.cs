@@ -86,6 +86,13 @@ public class EnemyController : MonoBehaviour {
         else if (this.GetEnemyType() == EnemyType.Brainy) {
             GetComponent<CircleCollider2D>().enabled = false;
             Destroy(gameObject);
+            GlobalState.brainyAlive = false;
+
+            // Delete eletric walls in level
+            // THis should be somewhere else but it's 1:30 AM.
+            foreach (GameObject go in GameObject.FindGameObjectsWithTag("ElectricWall")) {
+                Destroy(go);
+            }
         }
     }
 
