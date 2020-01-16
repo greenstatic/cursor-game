@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    public GameObject WinnerGameObject;
+
+    public void Start() {
+        if (GlobalState.hasWon) {
+            WinScreenActivate();
+        }
+    }
+
     public void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             GameObject credits = GameObject.Find("Credits");
@@ -28,6 +36,26 @@ public class MainMenu : MonoBehaviour {
         Debug.Log("Quiting game");
         Application.Quit();
         //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void WinScreenActivate() {
+        GameObject mainMenu = GameObject.Find("MainMenu");
+        if (mainMenu != null) {
+            mainMenu.SetActive(false);
+        }
+
+        if (WinnerGameObject != null)
+            WinnerGameObject.SetActive(true);
+    }
+
+    public void WinScreenDeactivate() {
+        if (WinnerGameObject != null)
+            WinnerGameObject.SetActive(false);
+
+        GameObject mainMenu = GameObject.Find("MainMenu");
+        if (mainMenu != null) {
+            mainMenu.SetActive(true);
+        }
     }
 
 }

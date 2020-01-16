@@ -173,6 +173,10 @@ public class playerController : MonoBehaviour {
             TakeDamage(20f);
         }
 
+        if (col.CompareTag("Laser")) {
+            TakeDamage(20f);
+        }
+
         if (col.CompareTag("ButtonWall")) {
             ButtonController button = col.GetComponent<ButtonController>();
             if (isDashing) {

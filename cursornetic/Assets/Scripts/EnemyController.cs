@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.SceneManagement;
 
 public enum EnemyType { Unknown, Minion, Brainy, Worm };
 
@@ -28,6 +29,13 @@ public class EnemyController : MonoBehaviour {
     public bool PeriodicOrbShootEnable = true;
     public float periodicOrbShootingDelta = 5;
     private float lastPerioidOrbShoot;
+
+    // Periodic Laser Shooting
+    public GameObject laserPrefab;
+    public bool PeriodicLaserShootEnable = true;
+    public float periodicLaserShootingDelta = 5;
+    private float lastPeriodicLaserShoot;
+    //public GameObject firePointWorm;
 
     // Death
     public ParticleSystem deathParticle;
@@ -59,6 +67,11 @@ public class EnemyController : MonoBehaviour {
             KeepDistancePathFindingUpdate();
             if (PeriodicOrbShootEnable)
                 PeriodicOrbShoot(transform.Find("FirePoint"));
+        }
+
+        if (this.GetEnemyType() == EnemyType.Worm) {
+            if (PeriodicLaserShootEnable)
+                PeriodicLaserShoot(transform.Find("FirePointWorm"));
         }
 
         distToPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -99,6 +112,13 @@ public class EnemyController : MonoBehaviour {
             StartCoroutine(waitForAnimation());
             
             if (this.name == "WormBoss") {
+                GlobalState.wormAlive = false;
+
+                if (!GlobalState.brainyAlive) {
+                    // Game over
+                    GlobalState.hasWon = true;
+                    SceneManager.LoadScene(0);
+                }
 
                 // Win dialog
                 dialog.GetComponent<DialogTrigger>().TriggerDialogue();
@@ -110,6 +130,12 @@ public class EnemyController : MonoBehaviour {
 
         if (this.name == "BrainyBoss") {
             GlobalState.brainyAlive = false;
+
+            if (!GlobalState.wormAlive) {
+                // Game over
+                GlobalState.hasWon = true;
+                SceneManager.LoadScene(0);
+            }
 
             // Recharge life
             GlobalState.health = 100;
@@ -238,6 +264,22 @@ public class EnemyController : MonoBehaviour {
             GameObject orb = Instantiate(orbPrefab, firePoint.position, firePoint.rotation);
             Orb orbScript = orb.GetComponent<Orb>();
             orbScript.MoveDirection(GetPlayerVector(firePoint));
+        }
+    }
+
+    public void PeriodicLaserShoot(Transform firePoint) {
+        Debug.Assert(firePoint);
+        
+        if (lastPeriodicLaserShoot + periodicLaserShootingDelta < Time.time && CanSeePlayer()) {
+            lastPeriodicLaserShoot = Time.time;
+
+            GameObject laser = Instantiate(laserPrefab, firePoint.position, player.transform.rotation);
+
+            // TODO rotate laser correctly.
+
+
+            Laser laserScript = laser.GetComponent<Laser>();
+            laserScript.MoveDirection(GetPlayerVector(firePoint));
         }
     }
 

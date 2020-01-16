@@ -3347,6 +3347,11 @@ PrefabInstance:
       propertyPath: dialog
       value: 
       objectReference: {fileID: 1558732744}
+    - target: {fileID: 8802215744372752337, guid: 37d05bf39def69c4a8e18789f71770a2,
+        type: 3}
+      propertyPath: PeriodicLaserShootEnable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8802215743088491871, guid: 37d05bf39def69c4a8e18789f71770a2,
         type: 3}
       propertyPath: m_LocalPosition.y
