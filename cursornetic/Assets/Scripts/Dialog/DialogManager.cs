@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
@@ -13,14 +14,14 @@ public class DialogManager : MonoBehaviour {
     public Animator animator;
 
     private Queue<string> sentences;
-    private Queue<MonoScript> scripts;
+    private Queue<string> scripts;
     private float previousTimeScale = 0f;
 
     private float previousGetButtonSubmit = 0;
 
     void Start() {
         sentences = new Queue<string>();
-        scripts = new Queue<MonoScript>();
+        scripts = new Queue<string>();
     }
 
     void Update() {
@@ -48,7 +49,7 @@ public class DialogManager : MonoBehaviour {
             sentences.Enqueue(sentence);
         }
 
-        if (Dialog.Script) {
+        if (Dialog.Script != "") {
             scripts.Enqueue(Dialog.Script);
         }
 
@@ -75,13 +76,16 @@ public class DialogManager : MonoBehaviour {
     }
 
     void EndDialog() {
-
         if (scripts.Count != 0) {
             for (int i = 0; i < scripts.Count; i++) {
-                MonoScript script = scripts.Dequeue();
-                MethodInfo scriptRunMethod = script.GetClass().GetMethod("Run");
-                if (scriptRunMethod != null)
-                    scriptRunMethod.Invoke(script.GetClass(), null);
+                string scriptName = scripts.Dequeue();
+                Type t = Type.GetType(scriptName);
+                if (t != null) {
+                    MethodInfo mi = t.GetMethod("Run");
+                    if (mi != null) {
+                        mi.Invoke(t.Name, null);
+                    }
+                }
             }
         }
 

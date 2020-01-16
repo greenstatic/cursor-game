@@ -6461,7 +6461,7 @@ MonoBehaviour:
     sentences:
     - They are everywhere!
     - Here...this might help you *gives weapon*. Use space bar to activate.
-    Script: {fileID: 11500000, guid: 0a73142ee6a9036468055504bfed1db7, type: 3}
+    Script: AbilityWeapon
 --- !u!1001 &1631160812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6864,7 +6864,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

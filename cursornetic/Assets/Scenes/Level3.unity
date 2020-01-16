@@ -3042,7 +3042,7 @@ MonoBehaviour:
     sentences:
     - Help me! They have captured me and placed me in this hole. This hourglass might
       help you (keybinding R).
-    Script: {fileID: 0}
+    Script: 
 --- !u!1 &666543281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8802215743088491856, guid: 37d05bf39def69c4a8e18789f71770a2,
@@ -4799,7 +4799,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

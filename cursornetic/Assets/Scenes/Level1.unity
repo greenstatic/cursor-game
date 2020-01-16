@@ -693,7 +693,7 @@ MonoBehaviour:
     - Nasty viruses have taken control of our computer.
     - Your job is to get rid of them. Use your dash ability to destroy them (keybinding
       E).
-    Script: {fileID: 0}
+    Script: 
 --- !u!4 &1209058277 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
