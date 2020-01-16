@@ -3038,9 +3038,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Gear Icon
+    name: Bluetooth Icon
     sentences:
-    - TODO
+    - Help me! They have captured me and placed me in this hole. This hourglass might
+      help you (keybinding R).
     Script: {fileID: 0}
 --- !u!1 &666543281 stripped
 GameObject:
@@ -3113,12 +3114,12 @@ PrefabInstance:
     - target: {fileID: 2704778739771377674, guid: 8238ddb0accc6244b82de53407a8f959,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3500068
+      value: 1.4199932
       objectReference: {fileID: 0}
     - target: {fileID: 2704778739771377674, guid: 8238ddb0accc6244b82de53407a8f959,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 63.70999
+      value: -0.22000504
       objectReference: {fileID: 0}
     - target: {fileID: 2704778739771377674, guid: 8238ddb0accc6244b82de53407a8f959,
         type: 3}
@@ -5101,12 +5102,12 @@ PrefabInstance:
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 3.77
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.7
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}

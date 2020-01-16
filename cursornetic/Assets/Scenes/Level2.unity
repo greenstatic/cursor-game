@@ -2628,12 +2628,12 @@ PrefabInstance:
     - target: {fileID: 2704778739771377674, guid: 8238ddb0accc6244b82de53407a8f959,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -76.149994
+      value: 11.490007
       objectReference: {fileID: 0}
     - target: {fileID: 2704778739771377674, guid: 8238ddb0accc6244b82de53407a8f959,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.790005
+      value: -0.030005276
       objectReference: {fileID: 0}
     - target: {fileID: 2704778739771377674, guid: 8238ddb0accc6244b82de53407a8f959,
         type: 3}
@@ -5064,12 +5064,12 @@ PrefabInstance:
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -73.8
+      value: 13.84
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.8
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 5025016620374312338, guid: 2c824c598ebc36747980e60fbb3ab4da,
         type: 3}
@@ -6460,7 +6460,7 @@ MonoBehaviour:
     name: Gear Icon
     sentences:
     - They are everywhere!
-    - Here...this might help you *gives weapon*.
+    - Here...this might help you *gives weapon*. Use space bar to activate.
     Script: {fileID: 11500000, guid: 0a73142ee6a9036468055504bfed1db7, type: 3}
 --- !u!1001 &1631160812
 PrefabInstance:

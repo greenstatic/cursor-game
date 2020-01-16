@@ -272,5 +272,4 @@ MonoBehaviour:
   orbPrefab: {fileID: 0}
   PeriodicOrbShootEnable: 1
   periodicOrbShootingDelta: 5
-  deathParticle: {fileID: 8921847185488515849, guid: 55da1be0b0dbabc43a4e6f6d70d6768d,
-    type: 3}
+  deathParticle: {fileID: 0}

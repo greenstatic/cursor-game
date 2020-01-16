@@ -691,7 +691,8 @@ MonoBehaviour:
     name: Help Icon
     sentences:
     - Nasty viruses have taken control of our computer.
-    - Your job is to get rid of them.
+    - Your job is to get rid of them. Use your dash ability to destroy them (keybinding
+      E).
     Script: {fileID: 0}
 --- !u!4 &1209058277 stripped
 Transform:
