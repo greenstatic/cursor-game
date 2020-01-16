@@ -32,6 +32,9 @@ public class EnemyController : MonoBehaviour {
     // Death
     public ParticleSystem deathParticle;
 
+    //Dialogs (just for bosses)
+    public GameObject dialog;
+
     public void Start() {
         player = GameObject.FindWithTag("Player");
         animator = GetComponentInChildren<Animator>();
@@ -81,18 +84,24 @@ public class EnemyController : MonoBehaviour {
         if (this.GetEnemyType() == EnemyType.Minion) {
             GetComponent<CapsuleCollider2D>().enabled = false;
             StartCoroutine(waitForAnimation());
-        }
-
-        else if (this.GetEnemyType() == EnemyType.Brainy) {
+        } else if (this.GetEnemyType() == EnemyType.Brainy) {
             GetComponent<CircleCollider2D>().enabled = false;
             Destroy(gameObject);
+        }
+
+        if (this.name == "BrainyBoss") {
             GlobalState.brainyAlive = false;
 
+            // Recharge life
+            GlobalState.health = 100;
+
             // Delete eletric walls in level
-            // THis should be somewhere else but it's 1:30 AM.
             foreach (GameObject go in GameObject.FindGameObjectsWithTag("ElectricWall")) {
                 Destroy(go);
             }
+
+            // Win dialog
+            dialog.GetComponent<DialogTrigger>().TriggerDialogue();
         }
     }
 
@@ -104,7 +113,9 @@ public class EnemyController : MonoBehaviour {
 
     public void TakeDamage(int damage) {
         health -= damage;
-        animator.SetTrigger("IsTakingDamage");
+        if (GetEnemyType() == EnemyType.Brainy || GetEnemyType() == EnemyType.Worm) {
+            animator.SetTrigger("IsTakingDamage");
+        }
         if (health <= 0) {
             //Instantiate(deathParticle, transform.position, Quaternion.identity);
             Die();

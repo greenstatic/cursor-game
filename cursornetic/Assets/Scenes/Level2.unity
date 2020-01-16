@@ -1835,96 +1835,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.379055, y: 13.135146}
   m_EdgeRadius: 0
---- !u!1001 &395830431
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1771672004}
-    m_Modifications:
-    - target: {fileID: 4196714185688781277, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy (19)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.21033934
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -26.710854
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.067248896
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.4298959
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.4298959
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196714185688781273, guid: 0b8031ac9f851794e87f09329d41892c,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 50033256}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0b8031ac9f851794e87f09329d41892c, type: 3}
---- !u!4 &395830432 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4196714185688781274, guid: 0b8031ac9f851794e87f09329d41892c,
-    type: 3}
-  m_PrefabInstance: {fileID: 395830431}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &404281453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3319,7 +3229,7 @@ PrefabInstance:
     - target: {fileID: 8802215744372752338, guid: 37d05bf39def69c4a8e18789f71770a2,
         type: 3}
       propertyPath: m_Name
-      value: Brainy
+      value: BrainyBoss
       objectReference: {fileID: 0}
     - target: {fileID: 8802215744372752348, guid: 37d05bf39def69c4a8e18789f71770a2,
         type: 3}
@@ -3432,6 +3342,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -3592110376851000130, guid: 6fb8295161fc39440bfe8bc250178548,
         type: 3}
+    - target: {fileID: 8802215744372752337, guid: 37d05bf39def69c4a8e18789f71770a2,
+        type: 3}
+      propertyPath: dialog
+      value: 
+      objectReference: {fileID: 1558732744}
     - target: {fileID: 8802215743088491871, guid: 37d05bf39def69c4a8e18789f71770a2,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -5723,6 +5638,97 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.72, y: 0.6}
   m_EdgeRadius: 0
+--- !u!1 &1354132741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354132742}
+  - component: {fileID: 1354132745}
+  - component: {fileID: 1354132744}
+  - component: {fileID: 1354132743}
+  m_Layer: 0
+  m_Name: ButtonsHint1
+  m_TagString: DialogTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1354132742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354132741}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -46.78, y: 42.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1571286028}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1354132743
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354132741}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5255718, y: -0.037695885}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.0250053, y: 3.5512867}
+  m_EdgeRadius: 0
+--- !u!114 &1354132744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354132741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ef6233002218e4c97bbc8757834b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogTrigger: {fileID: 1354132745}
+  uniqueName: ButtonsHint1
+  onlyOnce: 1
+--- !u!114 &1354132745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354132741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c50c5d31f139d4c9248724e3caab91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Help Icon
+    sentences:
+    - "Look a button! \nProbably it unlocks a door in this area. Try to press it dashing."
+    Script: 
 --- !u!1 &1379244997
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,6 +6207,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1548104391}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1558732744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1558732745}
+  - component: {fileID: 1558732746}
+  m_Layer: 0
+  m_Name: WinDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1558732745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558732744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 962767897}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1558732746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558732744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c50c5d31f139d4c9248724e3caab91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Help Icon
+    sentences:
+    - You did it!!! You defeated the big virus that was infecting this area!
+    - Come back to the cpu, a door has just opened. It's our chance to get back our
+      computer.
+    Script: 
 --- !u!1001 &1560835002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6319,6 +6375,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1615852000}
+  - {fileID: 1354132742}
+  - {fileID: 1917976105}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7073,11 +7131,10 @@ Transform:
   - {fileID: 1379244998}
   - {fileID: 1680405687}
   - {fileID: 2030885709}
-  - {fileID: 395830432}
+  - {fileID: 1810032078}
   - {fileID: 1924192266}
   - {fileID: 808939979}
   - {fileID: 1728568063}
-  - {fileID: 1810032078}
   m_Father: {fileID: 836575998}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7288,7 +7345,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1771672004}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1810032079
 SpriteRenderer:
@@ -7547,6 +7604,98 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.72, y: 0.6}
   m_EdgeRadius: 0
+--- !u!1 &1917976104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1917976105}
+  - component: {fileID: 1917976108}
+  - component: {fileID: 1917976107}
+  - component: {fileID: 1917976106}
+  m_Layer: 0
+  m_Name: ButtonsHint2
+  m_TagString: DialogTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1917976105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917976104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.41, y: 3.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1571286028}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1917976106
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917976104}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.32577515, y: -1.303102}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6949844, y: 6.082099}
+  m_EdgeRadius: 0
+--- !u!114 &1917976107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917976104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ef6233002218e4c97bbc8757834b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogTrigger: {fileID: 1917976108}
+  uniqueName: ButtonsHint2
+  onlyOnce: 1
+--- !u!114 &1917976108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917976104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c50c5d31f139d4c9248724e3caab91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Help Icon
+    sentences:
+    - There are a lot of buttons in here! We need to get to the yellow one up there...
+      Maybe you can use your new bullets to press it.
+    Script: 
 --- !u!1001 &1924192265
 PrefabInstance:
   m_ObjectHideFlags: 0
