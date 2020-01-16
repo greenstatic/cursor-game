@@ -264,7 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7b0eed997aa544ea0ba2bda827d9e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPos: {fileID: 4196714185688781274}
   health: 100
   enableFOV: 1
   FieldOfViewDistance: 5
@@ -273,8 +272,5 @@ MonoBehaviour:
   orbPrefab: {fileID: 0}
   PeriodicOrbShootEnable: 1
   periodicOrbShootingDelta: 5
-  enableElude: 0
-  eludeSpeed: 2
-  eludeDist: 3
-  startEludeTime: 0.2
-  deathParticle: {fileID: 0}
+  deathParticle: {fileID: 8921847185488515849, guid: 55da1be0b0dbabc43a4e6f6d70d6768d,
+    type: 3}

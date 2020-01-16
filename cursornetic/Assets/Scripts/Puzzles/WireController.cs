@@ -29,6 +29,8 @@ public class WireController : MonoBehaviour {
 
         // Add the button to the sequence
         transform.parent.GetComponent<WirePuzzleController>().ButtonPress(gameObject);
+        if (GetComponent<WirePuzzleController>() != null)
+            GetComponent<WirePuzzleController>().ButtonPress(gameObject);
     }
 
     public void TurnOff() {

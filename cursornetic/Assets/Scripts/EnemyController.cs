@@ -97,8 +97,9 @@ public class EnemyController : MonoBehaviour {
 
     public void TakeDamage(int damage) {
         health -= damage;
-
+        animator.SetTrigger("IsTakingDamage");
         if (health <= 0) {
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
             Die();
         }
     }
