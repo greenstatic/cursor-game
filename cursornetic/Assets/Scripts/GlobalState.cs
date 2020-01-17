@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlobalState {
     public static bool debug = Application.isEditor;
 
+    public static bool introPlayed = false;
     public static bool spawnInMiddleCpu = true;
 
     public static float health = 100;

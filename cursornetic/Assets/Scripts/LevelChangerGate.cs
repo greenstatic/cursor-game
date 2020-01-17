@@ -9,7 +9,7 @@ public class LevelChangerGate : MonoBehaviour {
     private GameObject player;
     private GameObject cam;
 
-    private Vector2 cpuLoc1 = new Vector2(-6.685872f, 6.902206f);
+    private Vector2 cpuLoc1 = new Vector2(-6.75f, 5.43f);
 
     public void Start() {
         player = GameObject.Find("Player");
