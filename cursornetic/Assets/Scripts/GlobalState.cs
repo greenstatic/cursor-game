@@ -20,6 +20,7 @@ public class GlobalState {
     public static bool hasWon = false;
 
     public static bool wormCanShoot = true;
+    public static int lastDeathScene = -1;
 
     public static void Reset() {
         // Deadlines make us do crazy things.
@@ -39,5 +40,7 @@ public class GlobalState {
         hasWon = false;
 
         wormCanShoot = true;
+
+        lastDeathScene = -1;
     }
 }
