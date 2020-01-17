@@ -44,8 +44,6 @@ public class Laser : MonoBehaviour
         if (hit.tag == "DialogTrigger")
             return;
 
-        Debug.Log(hit.name);
-
         Destroy(gameObject);
     }
 }

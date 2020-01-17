@@ -273,13 +273,22 @@ public class EnemyController : MonoBehaviour {
         if (lastPeriodicLaserShoot + periodicLaserShootingDelta < Time.time && CanSeePlayer()) {
             lastPeriodicLaserShoot = Time.time;
 
-            GameObject laser = Instantiate(laserPrefab, firePoint.position, player.transform.rotation);
+            Vector2 vecToPlayer = GetPlayerVector(firePoint);
+            float angle = Mathf.Asin(vecToPlayer.y / vecToPlayer.magnitude) * Mathf.Rad2Deg;
 
-            // TODO rotate laser correctly.
+            // Calculates the rotation of the laser to point at the player
+            Vector2 dir = (firePoint.position - player.transform.position);
+            if (dir.x > 0) {
+                if (dir.y > 0)
+                    angle = 180 + Mathf.Abs(angle);
+                else
+                    angle = 180 - angle;
+            }
 
+            GameObject laser = Instantiate(laserPrefab, firePoint.position, Quaternion.Euler(0,0,angle));
 
             Laser laserScript = laser.GetComponent<Laser>();
-            laserScript.MoveDirection(GetPlayerVector(firePoint));
+            laserScript.MoveDirection(vecToPlayer);
         }
     }
 
