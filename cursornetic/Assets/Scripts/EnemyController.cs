@@ -110,22 +110,6 @@ public class EnemyController : MonoBehaviour {
             animator = transform.GetChild(1).gameObject.GetComponent<Animator>();
 
             StartCoroutine(waitForAnimation());
-            
-            if (this.name == "WormBoss") {
-                GlobalState.wormAlive = false;
-
-                if (!GlobalState.brainyAlive) {
-                    // Game over
-                    GlobalState.hasWon = true;
-                    SceneManager.LoadScene(0);
-                }
-
-                // Win dialog
-                dialog.GetComponent<DialogTrigger>().TriggerDialogue();
-
-                // Recharge life
-                GlobalState.health = 100;
-            }
         }
 
         if (this.name == "BrainyBoss") {
@@ -153,6 +137,21 @@ public class EnemyController : MonoBehaviour {
     IEnumerator waitForAnimation() {
         animator.SetTrigger("Die");
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length-0.1f);
+        if (this.name == "WormBoss") {
+            GlobalState.wormAlive = false;
+
+            // Win dialog
+            dialog.GetComponent<DialogTrigger>().TriggerDialogue();
+
+            // Recharge life
+            GlobalState.health = 100;
+
+            if (!GlobalState.brainyAlive) {
+                // Game over
+                GlobalState.hasWon = true;
+                SceneManager.LoadScene(0);
+            }
+        }
         Destroy(gameObject);
     }
 
