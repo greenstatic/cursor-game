@@ -207,7 +207,8 @@ public class playerController : MonoBehaviour {
             GameOver();
         animator.SetTrigger("TakingDamge");
         FindObjectOfType<AudioManager>().Play("Damage");
-        transform.position -= (Vector3) direction*2;
+        //transform.position -= (Vector3) direction*2;
+        rb.AddForce(-direction * 3000);
 
     }
 
