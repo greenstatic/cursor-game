@@ -221,7 +221,9 @@ public class playerController : MonoBehaviour {
             // Spawn in the middle of the CPU level (level1) if we die in the cpu
             GlobalState.spawnInMiddleCpu = true;
         }
-        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        GlobalState.lastDeathScene = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings - 2);  // Game over scene should be second last
     }
 }
